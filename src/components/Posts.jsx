@@ -12,6 +12,18 @@ const Posts = () => {
         try {
           const resp = await fetch('http://localhost:3000/api/v1/posts', { signal: controller.signal});
           const data = await resp.json();
+          
+          // Iterates through the data object, uses for...of to make await work
+          // Creates a new field `authorName` using the `author` value to fetch data of author
+          for (const post of data){
+            let authorResponse = await fetch('http://localhost:3000' + post.author);
+            let authorData = await authorResponse.json();
+            console.log("author data");
+            console.log(authorData);
+
+            post.authorName = `${authorData.firstName} ${authorData.lastName}`;
+          }
+          console.log(data);
           setPosts(data);
         } catch (err) {
             console.log(err);
@@ -36,7 +48,7 @@ const Posts = () => {
             <p>{post.title}</p>
             <p>{post.text}</p>
             <p>{post.createdAt}</p>
-            <p>{post.author}</p>
+            <p>{post.authorName}</p>
         </li>)}
     </ul>
   )
