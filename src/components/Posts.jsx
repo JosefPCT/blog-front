@@ -4,19 +4,19 @@ const Posts = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const controller = new AbortController();
-
     const fetchPosts = async() => {
         try {
-          const resp = await fetch('http://localhost:3000/api/v1/posts', { signal: controller.signal});
+          const resp = await fetch(`${apiUrl}/api/v1/posts`, { signal: controller.signal});
           const data = await resp.json();
           
           // Iterates through the data object, uses for...of to make await work
           // Creates a new field `authorName` using the `author` value to fetch data of author
           for (const post of data){
-            let authorResponse = await fetch('http://localhost:3000' + post.author);
+            let authorResponse = await fetch(`${apiUrl}${post.author}`);
             let authorData = await authorResponse.json();
             console.log("author data");
             console.log(authorData);
