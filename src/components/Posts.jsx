@@ -22,7 +22,7 @@ const Posts = () => {
     <ul>
       {data.map((post) => 
       <li key={post.publicId}>
-        <p>{post.title}</p>
+        <a href={`/posts/${post.publicId}/${post.title}`}><p>{post.title}</p></a>
         <p>{post.text}</p>
         <p>{post.createdAt}</p>
         <p>{post.authorName}</p>
