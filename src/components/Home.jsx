@@ -3,7 +3,7 @@ import Posts from "./Posts";
 function Home(){
   return(
     <>
-      <h1>Featured Posts</h1>
+      <h1>Latest Posts</h1>
       <Posts />
     </>
   )
