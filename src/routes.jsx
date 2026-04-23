@@ -1,7 +1,7 @@
 import MainLayout from "./components/MainLayout";
 import Home from "./components/Home";
 import Dashboard from "./components/Dashboard";
-import Post from "./pages/Post";
+import SpecificPost from "./pages/SpecificPost";
 
 const routes = [
   {
@@ -9,7 +9,7 @@ const routes = [
     children: [
         { index: true, Component: Home },
         { path: "/dashboard", Component: Dashboard },
-        { path: "/posts/:publicId/:postSlug", Component: Post}
+        { path: "/posts/:publicId/:postSlug", Component: SpecificPost}
     ]
   }
 ];

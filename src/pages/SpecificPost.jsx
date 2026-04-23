@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
 
-const Post = () => {
+const SpecificPost = () => {
   const { publicId, postSlug } = useParams();
 
   return(
@@ -12,4 +12,4 @@ const Post = () => {
   )
 }
 
-export default Post;
+export default SpecificPost;
