@@ -26,7 +26,7 @@ const Post = ({ publicId, postSlug }) => {
       <p>{data.title}</p>
       <p>Posted on: {dateFormatter(data.createdAt)}</p>
       <p>Author: {data.authorName}</p>
-      <p>{data.text}</p>
+      <p>Post body: {data.text}</p>
     </>
   )
 }
