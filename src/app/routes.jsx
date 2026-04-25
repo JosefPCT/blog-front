@@ -1,15 +1,15 @@
 import { MainLayout } from "../shared/ui";
 import { HomePage } from "../pages/home";
-import { Dashboard } from "../pages/dashboard";
-import { SpecificPost } from "../pages/blogs-read";
+import { DashboardPage } from "../pages/dashboard";
+import SpecificPostPage from "../pages/blogs-read/ui/SpecificPostPage";
 
 const routes = [
   {
     Component: MainLayout,
     children: [
         { index: true, Component: HomePage },
-        { path: "/dashboard", Component: Dashboard },
-        { path: "/posts/:publicId/:postSlug", Component: SpecificPost}
+        { path: "/dashboard", Component: DashboardPage },
+        { path: "/posts/:publicId/:postSlug", Component: SpecificPostPage}
     ]
   }
 ];

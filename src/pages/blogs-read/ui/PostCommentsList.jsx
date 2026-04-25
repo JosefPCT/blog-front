@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import fetchPostComments from "../api/fetchPostComments";
 import { dateFormatter } from "../../../shared/lib";
 
-const PostComments = ({postPublicId}) => {
+const PostCommentsList = ({postPublicId}) => {
   const { isPending, isError, data, error} = useQuery({
     queryKey: ['specificPostComments'],
     queryFn: () => fetchPostComments(postPublicId)
@@ -29,4 +29,4 @@ const PostComments = ({postPublicId}) => {
   )
 }
 
-export default PostComments;
+export default PostCommentsList;
