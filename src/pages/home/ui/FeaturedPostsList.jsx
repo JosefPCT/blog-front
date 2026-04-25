@@ -7,7 +7,7 @@ const FeaturedPostsList = () => {
 
   const { isPending, isError, data, error }= useQuery({
     queryKey: ['posts'],
-    queryFn: () => fetchAllPosts(urlQuery),
+    queryFn: () => fetchAllPosts(urlQuery, 3),
   });
 
   if (isPending){

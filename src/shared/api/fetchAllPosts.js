@@ -1,6 +1,6 @@
 // Function that fetches posts by the api url, returns the parsed json of posts
 // Used in a query function
-export default async function fetchAllPosts(urlQuery=""){
+export default async function fetchAllPosts(urlQuery="", limit=undefined){
   const apiUrl = import.meta.env.VITE_API_URL;
   console.log(`${apiUrl}/api/v1/posts${urlQuery}`);
   const response = await fetch(`${apiUrl}/api/v1/posts${urlQuery}`);
@@ -15,5 +15,10 @@ export default async function fetchAllPosts(urlQuery=""){
     // console.log(authorData);
     post.authorName = `${authorData.firstName} ${authorData.lastName}`;
   }
+
+  if(limit !== undefined){
+    return posts.slice(0, limit);
+  }
+
   return posts;
 }
