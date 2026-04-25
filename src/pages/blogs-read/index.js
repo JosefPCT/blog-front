@@ -1,3 +1,3 @@
-import SpecificPost from "./ui/SpecificPost";
+import SpecificPostPage from "./ui/SpecificPostPage"
 
-export { SpecificPost }
+export { SpecificPostPage }

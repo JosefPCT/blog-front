@@ -1,7 +1,7 @@
 import { MainLayout } from "../shared/ui";
 import { HomePage } from "../pages/home";
 import { DashboardPage } from "../pages/dashboard";
-import SpecificPostPage from "../pages/blogs-read/ui/SpecificPostPage";
+import { SpecificPostPage } from "../pages/blogs-read";
 
 const routes = [
   {
