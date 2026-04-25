@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import fetchPostComments from "../services/fetchPostComments";
-import dateFormatter from "../utils/dateFormatter";
+import fetchPostComments from "../api/fetchPostComments";
+import { dateFormatter } from "../../../shared/lib";
 
 const PostComments = ({postPublicId}) => {
   const { isPending, isError, data, error} = useQuery({

@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
-import Post from "../components/Post";
-import PostComments from "../components/PostComments";
+import Post from "./Post";
+import PostComments from "./PostComments";
 
 const SpecificPost = () => {
   const { publicId, postSlug } = useParams();

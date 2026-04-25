@@ -1,8 +1,8 @@
 // Refactor using Tanstack Query
 import { useQuery } from "@tanstack/react-query";
-import fetchAllPosts from "../services/fetchAllPosts";
+import { fetchAllPosts } from "../../../shared/api";
 
-const Posts = () => {
+const FeaturedPostsList = () => {
   const urlQuery = "?sort=+createdAt";
 
   const { isPending, isError, data, error }= useQuery({
@@ -31,7 +31,7 @@ const Posts = () => {
   )
 }
 
-export default Posts;
+export default FeaturedPostsList;
 
 // Normal Implementation
 // import { useState, useEffect } from "react";

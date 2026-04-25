@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import fetchSpecificPost from "../services/fetchSpecificPost";
-import dateFormatter from "../utils/dateFormatter";
+import fetchSpecificPost from "../api/fetchSpecificPost";
+import { dateFormatter } from "../../../shared/lib";
 
 const Post = ({ publicId, postSlug }) => {
   const { isPending, isError, data, error} = useQuery({
