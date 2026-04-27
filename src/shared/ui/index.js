@@ -1,3 +1,4 @@
 import MainLayout from "./MainLayout";
+import Card from "./Card";
 
-export { MainLayout }
+export { MainLayout, Card }
