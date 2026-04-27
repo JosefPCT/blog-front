@@ -2,6 +2,7 @@ import { useParams } from "react-router";
 import PostContent from "./PostContent";
 import PostCommentsList from "./PostCommentsList";
 
+
 const SpecificPostPage = () => {
   const { publicId, postSlug } = useParams();
   return(
