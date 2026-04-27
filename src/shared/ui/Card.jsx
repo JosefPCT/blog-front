@@ -1,6 +1,8 @@
+import styles from './Card.module.css'
+
 const Card = ({ children }) => {
   return(
-    <div style={{ border: '2px solid red', padding: '20px', margin: '5px'}}>
+    <div className={styles['card-primo']}>
        {children} 
     </div>
   )
