@@ -1,7 +1,10 @@
+// import Login from "./Login";
+import LoginSection from "./LoginSection";
+
 const SignInPage = () => {
   return(
     <>
-      <h1>Login</h1>
+      <LoginSection />
     </>
   )
 }
