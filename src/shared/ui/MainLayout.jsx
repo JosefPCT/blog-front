@@ -1,4 +1,5 @@
 import { Outlet } from "react-router";
+import { isTokenValid } from "../lib/tokenHelper";
 
 function MainLayout(){
   return(
@@ -9,8 +10,7 @@ function MainLayout(){
         <a href="#">About Us</a>
         <a href="#">Contact Us</a>
 
-        <a href="#">Login</a>
-        <a href="#">Logout</a>
+        { isTokenValid() ? <a href="#">Logout</a> : <a href="#">Login</a> }
       </nav>
 
       <Outlet />

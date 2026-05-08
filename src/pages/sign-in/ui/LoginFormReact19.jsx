@@ -3,12 +3,13 @@
 import { useActionState } from "react";
 import loginUser from "../api/loginUser";
 // import checkToken from "../../../shared/lib/checkToken";
-import { isTokenValid } from "../../../shared/lib/tokenHelper";
+import { isTokenValid, setToken } from "../../../shared/lib/tokenHelper";
 
 async function loginUserAction(prevState, formData){
 
   // checkToken();
   console.log(isTokenValid());
+  setToken();
 
   const email = formData.get("user_name");
   const data = {

@@ -4,7 +4,7 @@ import { millisecondstoMinutes } from "./timeConverter";
 export const isTokenValid = () => {
   const storedToken = localStorage.getItem("token");
   const token = JSON.parse(storedToken);
-  if(!token.value){
+  if(!token){
     console.log("No token");
     return false;
   }
@@ -13,4 +13,10 @@ export const isTokenValid = () => {
   
 
   return tokenTimeInMins < token.expiryInMins;
+}
+
+export const setToken = () => {
+  if(!isTokenValid()){
+    localStorage.clear();
+  }
 }
