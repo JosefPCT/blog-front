@@ -1,4 +1,4 @@
-export default async function authUser(loginUserDetails={}){
+export default async function loginUser(loginUserDetails={}){
   const apiUrl = import.meta.env.VITE_API_URL;
   const response = await fetch(`${apiUrl}/api/v1/auth/login`, {
     method:'POST',
@@ -14,7 +14,10 @@ export default async function authUser(loginUserDetails={}){
   }
 
   const result = await response.json();
-  localStorage.setItem("token", result.token)
+  const token = { value: result.token, created: Date.now(), expiryInMins: 15};
+  console.log(token);
+
+  localStorage.setItem("token", JSON.stringify(token));
   console.log(result);
   return result;
 }

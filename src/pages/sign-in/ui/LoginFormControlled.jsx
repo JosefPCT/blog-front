@@ -1,6 +1,6 @@
 import { useState } from "react";
 // import { useQuery } from "@tanstack/react-query";
-import authUser from "../api/authUser";
+import loginUser from "../api/loginUser";
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
@@ -22,10 +22,9 @@ const LoginForm = () => {
     setLoading(true);
 
     try {
-      await authUser(formData);
+      await loginUser(formData);
       setSuccess(true);
     } catch (error) {
-      console.log(error);
       console.error("Error submitting form", error);
       setError(true);
       // setErrorMessage(error);

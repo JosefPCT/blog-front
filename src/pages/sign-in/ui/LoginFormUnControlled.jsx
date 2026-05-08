@@ -1,5 +1,5 @@
 // Using `formData` method
-import authUser from "../api/authUser";
+import loginUser from "../api/loginUser";
 
 const LoginForm = () => {
   const handleSubmit = async(event) => {
@@ -12,7 +12,7 @@ const LoginForm = () => {
     const data = Object.fromEntries(formData.entries());
     console.log(data);
 
-    await authUser(data);
+    await loginUser(data);
   }
 
   return(
@@ -32,7 +32,7 @@ const LoginForm = () => {
 
 export default LoginForm;
 
-// Using `useRef` method
+// // Using `useRef` method
 // import { useRef } from "react";
 // import authUser from "../api/authUser";
 

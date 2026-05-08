@@ -1,9 +1,15 @@
 // Using `useActionState`
 
 import { useActionState } from "react";
-import authUser from "../api/authUser";
+import loginUser from "../api/loginUser";
+// import checkToken from "../../../shared/lib/checkToken";
+import { isTokenValid } from "../../../shared/lib/tokenHelper";
 
-async function loginUser(prevState, formData){
+async function loginUserAction(prevState, formData){
+
+  // checkToken();
+  console.log(isTokenValid());
+
   const email = formData.get("user_name");
   const data = {
     user_name: formData.get("user_name"),
@@ -11,7 +17,7 @@ async function loginUser(prevState, formData){
   }
 
   try {
-    await authUser(data);
+    await loginUser(data);
     if(!email.includes('@')){
       return { error: "Invalid email address"};
     }
@@ -24,7 +30,7 @@ async function loginUser(prevState, formData){
 }
 
 const LoginForm = () => {
-  const [state, formAction, isPending] = useActionState(loginUser, null);
+  const [state, formAction, isPending] = useActionState(loginUserAction, null);
 
   return(
     <form action={formAction}>
@@ -40,6 +46,7 @@ const LoginForm = () => {
 
         {state?.error && <p style={{ color: 'red'}}>{state.error}</p>}
         {state?.success && <p>Login successful! {state.message}</p>}
+        {isTokenValid() ? <p>TOken Valid</p> : <p>Token Invalid</p>}
     </form>
   )
 }   
