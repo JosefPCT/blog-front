@@ -1,3 +1,5 @@
+// import { setToken } from "../../../shared/lib/tokenHelper";
+
 export default async function loginUser(loginUserDetails={}){
   const apiUrl = import.meta.env.VITE_API_URL;
   const response = await fetch(`${apiUrl}/api/v1/auth/login`, {
