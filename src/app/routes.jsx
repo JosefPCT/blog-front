@@ -4,6 +4,7 @@ import { AllBlogsPage } from "../pages/all-blogs";
 import { DashboardPage } from "../pages/dashboard";
 import { SpecificPostPage } from "../pages/blogs-read";
 import { SignInPage  } from "../pages/sign-in";
+import TestComponent from "./experimental/Test";
 
 const routes = [
   {
@@ -13,7 +14,8 @@ const routes = [
         { path: "/all-blogs", Component: AllBlogsPage },
         { path: "/dashboard", Component: DashboardPage },
         { path: "/posts/:publicId/:postSlug", Component: SpecificPostPage },
-        { path: "/sign-in", Component: SignInPage }
+        { path: "/sign-in", Component: SignInPage },
+        { path: "/test", Component: TestComponent }
     ]
   }
 ];
