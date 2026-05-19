@@ -1,16 +1,19 @@
-import { isTokenValid } from "../lib/tokenHelper";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { useState } from "react";
-import { Link, useLocation } from "react-router";
-import { fetchCurrentUser } from "../api";
-import LogoutLink from "./LogoutLink";
 
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useState, useContext } from "react";
+import { Link, useLocation } from "react-router";
+
+
+import { fetchCurrentUser } from "../../../shared/api";
+import { isTokenValid } from "../../../shared/lib";
+import { AuthContext, LogoutLink } from "../../../entities/user";;
 
 const NavigationSection = () => {
   // Creates a state to get the token from local storage, to implement a depedency on the token to refetch if it changes state (removed/added)
   // const [localToken, setLocalToken] = useState(() => localStorage.getItem("token"));
   // const [user, setUser] = useState({});
   const location = useLocation();
+  const auth = useContext(AuthContext);
 
   const queryClient = useQueryClient();
 
@@ -37,6 +40,7 @@ const NavigationSection = () => {
 
   return(
     <nav>
+      Auth Context Value: {auth}
       <Link to='/'>Home</Link>
       <a href="#">All Blogs</a>
       <a href="#">About Us</a>

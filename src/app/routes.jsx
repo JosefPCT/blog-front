@@ -1,4 +1,4 @@
-import { MainLayout } from "../shared/ui";
+import MainWrapper from "./providers/MainWrapper";
 import { HomePage } from "../pages/home";
 import { AllBlogsPage } from "../pages/all-blogs";
 import { DashboardPage } from "../pages/dashboard";
@@ -8,7 +8,7 @@ import TestComponent from "./experimental/Test";
 
 const routes = [
   {
-    Component: MainLayout,
+    Component: MainWrapper,
     children: [
         { index: true, Component: HomePage },
         { path: "/all-blogs", Component: AllBlogsPage },

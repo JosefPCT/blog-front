@@ -1,4 +1,6 @@
 import { Link } from "react-router";
+import { AuthContext } from "../model/AuthContext";
+
 
 const LogoutLink = ( {onLogout}) => {
   // const handleLogout= (event) => {
