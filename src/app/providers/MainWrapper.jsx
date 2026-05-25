@@ -1,19 +1,24 @@
+// Wrapper for the whole app, defines the provider and global state to give the entire app with
+// Enables using `useContext` / `useHook`, for children components, avoids prop drilling
+// import AppWrapper from "./AppWrapper";
 import { Outlet } from "react-router";
 
 import { NavigationSection } from "../../widgets/navbar";
-import { AuthContext } from "../../entities/user";
+import { AuthProvider, UserProvider} from "../../entities/user";
 
 
-function MainWrapper(){
+const MainWrapper = () => {
   return(
     <>
-      <AuthContext.Provider value="no">
+      <AuthProvider>
+      <UserProvider>
         <NavigationSection />
 
         <Outlet />
-      
+    
         <footer>Copyright 2026</footer>
-      </AuthContext.Provider>
+      </UserProvider>
+      </AuthProvider>
     </>
   )
 }

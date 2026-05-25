@@ -1,15 +1,29 @@
 // Using `useActionState`
+// Login Form that uses new way to create a form from React 19's `useActionState` and passing a function to the `action` attribute of a form
+// Uses global state `isAuth` and `user`
 
 import { useActionState } from "react";
 import loginUser from "../api/loginUser";
-// import checkToken from "../../../shared/lib/checkToken";
-import { isTokenValid, setToken } from "../../../shared/lib/tokenHelper";
+import postLogin from "../api/postLogin";
 
-async function loginUserAction(prevState, formData){
+import { setToken } from "../../../shared/lib/tokenHelper";
+import { useAuth } from "../../../entities/user";
 
-  // checkToken();
-  console.log(isTokenValid());
+async function loginUserAction(isAuth, setIsAuth, prevState, formData){
+
   setToken();
+
+  // console.log("Inside login user action")
+  // console.log("isAuth value");
+  // console.log(isAuth);
+  // console.log("setIsAuth value")
+  // console.log(setIsAuth);
+
+  // console.log("prevState argument value")
+  // console.log(prevState);
+
+  // console.log("formData value")
+  // console.log(formData);
 
   const email = formData.get("user_name");
   const data = {
@@ -18,10 +32,17 @@ async function loginUserAction(prevState, formData){
   }
 
   try {
-    await loginUser(data);
+    if(isAuth){
+      return { error: "Already logged in" };
+    }
+
     if(!email.includes('@')){
       return { error: "Invalid email address"};
     }
+    const result = await loginUser(data);
+    await postLogin(result, isAuth, setIsAuth);
+
+    // Instead of returning the below, use `useNavigate` to navigate to `/` or `/dashboard` or the previous url before the login 
     return { error: null, success: true, message: `Login successful`};
   } catch (error) {
     return { error: `"Wrong Credentials and ${error}`, success: false}
@@ -31,7 +52,11 @@ async function loginUserAction(prevState, formData){
 }
 
 const LoginForm = () => {
-  const [state, formAction, isPending] = useActionState(loginUserAction, null);
+  const { isAuth, setIsAuth } = useAuth();
+
+  const actionWithSetter = loginUserAction.bind(null, isAuth, setIsAuth)
+  const [state, formAction, isPending] = useActionState(actionWithSetter, null);
+  
 
   return(
     <form action={formAction}>
@@ -47,7 +72,6 @@ const LoginForm = () => {
 
         {state?.error && <p style={{ color: 'red'}}>{state.error}</p>}
         {state?.success && <p>Login successful! {state.message}</p>}
-        {isTokenValid() ? <p>TOken Valid</p> : <p>Token Invalid</p>}
     </form>
   )
 }   

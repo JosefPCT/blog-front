@@ -1,53 +1,31 @@
 
-import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { useState, useContext } from "react";
-import { Link, useLocation } from "react-router";
+// Navigation Section of the app
+// Houses the `logout` function of the app, clearing data for both of the global context: `isAuth` and `user`
+import { Link } from "react-router";
 
-
-import { fetchCurrentUser } from "../../../shared/api";
-import { isTokenValid } from "../../../shared/lib";
-import { AuthContext, LogoutLink } from "../../../entities/user";;
+import { useAuth, useUser, LogoutLink } from "../../../entities/user";;
 
 const NavigationSection = () => {
-  // Creates a state to get the token from local storage, to implement a depedency on the token to refetch if it changes state (removed/added)
-  // const [localToken, setLocalToken] = useState(() => localStorage.getItem("token"));
-  // const [user, setUser] = useState({});
-  const location = useLocation();
-  const auth = useContext(AuthContext);
-
-  const queryClient = useQueryClient();
-
-  // In the queryKey, make sure to add the localToken state variable to automatically trigger a refetch if the token's value changes
-  const { isPending, isError, data, error} = useQuery({
-    queryKey: ['currentUser'],
-    // queryKey: ['currentUser'],
-    // queryFn: () => fetchCurrentUser(localToken),
-    queryFn: () => fetchCurrentUser(),
-    // enabled: !!localToken
-  })
+  const { isAuth, setIsAuth } = useAuth();
+  const { user, setUser} = useUser();
 
   const handleLogout= (event) => {
-    console.log("Logout button was clicked");
+    console.log("Logout button was clicked", event);
     localStorage.removeItem("token");
-    // queryClient.clear();
-    queryClient.removeQueries({ queryKey: ['currentUser']});
-    // setLocalToken(null);
+    setIsAuth(false);
+    setUser(null);
   }
-
-  console.log("data value");
-  console.log(data);
-
-
+  
   return(
     <nav>
-      Auth Context Value: {auth}
       <Link to='/'>Home</Link>
       <a href="#">All Blogs</a>
       <a href="#">About Us</a>
       <a href="#">Contact Us</a>
 
-      { isTokenValid() ? <LogoutLink onLogout={handleLogout} />: <Link to='/sign-in'>Login</Link> }
-      { data && <span>Hello, { data.firstName, data.lastName}</span>}
+      { isAuth ? <LogoutLink onLogout={handleLogout} />: <Link to='/sign-in'>Login</Link> }
+      { isAuth && user && <span> Hello, {user.firstName}</span>}
+      
     </nav>
   )
 }

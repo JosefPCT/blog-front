@@ -1,3 +1,4 @@
+// Helper function API call that is used when logging in to provide the client the token needed for authorization uses, returns a JSON data with the token in it
 // import { setToken } from "../../../shared/lib/tokenHelper";
 
 export default async function loginUser(loginUserDetails={}){
@@ -16,10 +17,5 @@ export default async function loginUser(loginUserDetails={}){
   }
 
   const result = await response.json();
-  const token = { value: result.token, created: Date.now(), expiryInMins: 15};
-  console.log(token);
-
-  localStorage.setItem("token", JSON.stringify(token));
-  console.log(result);
   return result;
 }
