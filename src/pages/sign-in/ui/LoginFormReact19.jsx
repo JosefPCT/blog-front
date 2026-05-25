@@ -3,27 +3,15 @@
 // Uses global state `isAuth` and `user`
 
 import { useActionState } from "react";
+import { useNavigate } from "react-router";
+
 import loginUser from "../api/loginUser";
 import postLogin from "../api/postLogin";
-
 import { setToken } from "../../../shared/lib/tokenHelper";
 import { useAuth } from "../../../entities/user";
 
-async function loginUserAction(isAuth, setIsAuth, prevState, formData){
-
+async function loginUserAction(isAuth, setIsAuth, navigate, prevState, formData){ 
   setToken();
-
-  // console.log("Inside login user action")
-  // console.log("isAuth value");
-  // console.log(isAuth);
-  // console.log("setIsAuth value")
-  // console.log(setIsAuth);
-
-  // console.log("prevState argument value")
-  // console.log(prevState);
-
-  // console.log("formData value")
-  // console.log(formData);
 
   const email = formData.get("user_name");
   const data = {
@@ -42,6 +30,10 @@ async function loginUserAction(isAuth, setIsAuth, prevState, formData){
     const result = await loginUser(data);
     await postLogin(result, isAuth, setIsAuth);
 
+    setTimeout(() => {
+      navigate('/');
+    }, 2000);
+
     // Instead of returning the below, use `useNavigate` to navigate to `/` or `/dashboard` or the previous url before the login 
     return { error: null, success: true, message: `Login successful`};
   } catch (error) {
@@ -52,9 +44,10 @@ async function loginUserAction(isAuth, setIsAuth, prevState, formData){
 }
 
 const LoginForm = () => {
+  const navigate = useNavigate();
   const { isAuth, setIsAuth } = useAuth();
 
-  const actionWithSetter = loginUserAction.bind(null, isAuth, setIsAuth)
+  const actionWithSetter = loginUserAction.bind(null, isAuth, setIsAuth, navigate)
   const [state, formAction, isPending] = useActionState(actionWithSetter, null);
   
 
