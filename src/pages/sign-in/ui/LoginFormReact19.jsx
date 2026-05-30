@@ -51,6 +51,7 @@
     const { isAuth, setIsAuth } = useAuth();
 
     const target = searchParams.get("prevUrl");
+    // Can refactor the link in 'home' to include a search parameters, but with this, it will default to '/' as the previous url if no search parameter is detected
     const prevUrl = target ? target : "/";
 
     const actionWithSetter = loginUserAction.bind(null, isAuth, setIsAuth, navigate, prevUrl)
