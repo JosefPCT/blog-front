@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import registerUser from "../api/registerUser";
+
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -104,9 +106,13 @@ const RegisterForm = () => {
     setShowConfirmPassword(prev => !prev);
   }
 
-  const onSubmitHandler = (e) => {
+  const onSubmitHandler = async (e) => {
     e.preventDefault();
     console.log("Submit handler triggered...");
+    console.log(formData);
+    const result = await registerUser(formData);
+    console.log("Registered user");
+    console.log(result);
     // console.log(e.target);
     // for( const [key, value] of Object.entries(errors)){
     //   console.log(`${key}: ${value}`);
