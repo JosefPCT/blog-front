@@ -3,10 +3,10 @@ import fetchPostComments from "../api/fetchPostComments";
 import { dateFormatter } from "../../../shared/lib";
 import { Card } from "../../../shared/ui";
 
-const PostCommentsList = ({postPublicId}) => {
+const PostCommentsList = ({postPublicId, isNewComment, setIsNewComment}) => {
   const { isPending, isError, data, error} = useQuery({
-    queryKey: ['specificPostComments'],
-    queryFn: () => fetchPostComments(postPublicId)
+    queryKey: ['specificPostComments', isNewComment],
+    queryFn: () => fetchPostComments(postPublicId, setIsNewComment)
   })
 
   if(isPending){

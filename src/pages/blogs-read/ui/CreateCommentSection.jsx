@@ -4,16 +4,14 @@ import CommentForm from "./CommentForm";
 import { useAuth } from "../../../entities/user";
 import { useLocation } from "react-router";
 
-const CreateCommentSection = () => {
+const CreateCommentSection = ({publicId, setIsNewComment}) => {
   const { isAuth } = useAuth();
   const url = useLocation();
-  console.log("Showing url...");
-  console.log(url.pathname);
 
 
   return(
     <div>
-      {isAuth ? <CommentForm /> : <span>You need to <Link to={`/sign-in?prevUrl=${url.pathname}`}>login</Link> to post a comment.</span> }
+      {isAuth ? <CommentForm publicPostId={publicId} setIsNewComment={setIsNewComment} /> : <span>You need to <Link to={`/sign-in?prevUrl=${url.pathname}`}>login</Link> to post a comment.</span> }
       <p></p>
     </div>
   )
