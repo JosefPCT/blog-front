@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import fetchPostComments from "../api/fetchPostComments";
-import { dateFormatter } from "../../../shared/lib";
-import { Card } from "../../../shared/ui";
+import PostCommentsListItem from "./PostCommentsListItem";
 
 const PostCommentsList = ({postPublicId, isNewComment, setIsNewComment}) => {
   const { isPending, isError, data, error} = useQuery({
@@ -20,15 +19,7 @@ const PostCommentsList = ({postPublicId, isNewComment, setIsNewComment}) => {
   return(
     <ul>
       {data.map((comment) => 
-      <Card key={comment.publicId}>
-        <li key={comment.publicId}>
-          <p>Key: {comment.publicId}</p>
-          <a href={`/posts/${comment.publicId}/comments/${comment.publicId}/${comment.text}`}><p>{comment.text}</p></a>
-          <p>Comment: {comment.text}</p>
-          <p>Commented on: {dateFormatter(comment.createdAt)}</p>
-          <p>Commenter: {comment.authorName}</p>
-        </li>
-      </Card>
+       <PostCommentsListItem key={comment.publicId} comment={comment}/>
       )}
     </ul>
   )
