@@ -19,7 +19,7 @@ const RegisterForm = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   // Use to disable/enable the submit button, disables the submit button if it returns true, enables the return button if it retuns false
-  const checkSubmitButton = () => {
+  const hasErrors = () => {
     if(Object.keys(errors).length !== 0){
       return true;
     }
@@ -110,7 +110,15 @@ const RegisterForm = () => {
     e.preventDefault();
     console.log("Submit handler triggered...");
     console.log(formData);
-    const result = await registerUser(formData);
+    let result;
+    try {
+      setLoading(true);
+      result = await registerUser(formData);
+    } catch (error) {
+      throw new Error ("Something went wrong", error);
+    } finally {
+      setLoading(false);
+    }
     console.log("Registered user");
     console.log(result);
     // console.log(e.target);
@@ -147,7 +155,7 @@ const RegisterForm = () => {
         <input type="text" name="lastName" id="lastName" value={formData.lastName} onChange={onChangeHandler} onBlur={onBlurHandler} />
         { errors && errors.lastName && <span>{errors.lastName}</span>}
 
-        <button type="submit" disabled={loading || checkSubmitButton()}>{ checkSubmitButton() ? 'Register' : loading ? 'Registration in process...' : 'Register'}</button>
+        <button type="submit" disabled={loading || hasErrors()}>{  loading ? 'Registration in progress...' : hasErrors() ? 'Register (Fix errors first)' : 'Register'}</button>
     </form>
   )
 }
