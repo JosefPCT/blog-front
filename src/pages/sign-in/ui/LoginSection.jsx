@@ -16,7 +16,7 @@ const LoginSection = () => {
   return(
     <>
       <button onClick={toggleSectionHandler}>{ toggleSection === 'login' ? 'Go to registration' : 'Go to login'}</button>
-      { toggleSection === 'login' ? <LoginForm /> : <RegisterForm />}
+      { toggleSection === 'login' ? <LoginForm /> : <RegisterForm setToggleSection={setToggleSection}/>}
     </>
   )
 }

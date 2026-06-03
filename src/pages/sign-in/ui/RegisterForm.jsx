@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import registerUser from "../api/registerUser";
 
-const RegisterForm = () => {
+const RegisterForm = ({setToggleSection}) => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -121,6 +121,7 @@ const RegisterForm = () => {
     }
     console.log("Registered user");
     console.log(result);
+    setToggleSection("login");
     // console.log(e.target);
     // for( const [key, value] of Object.entries(errors)){
     //   console.log(`${key}: ${value}`);
