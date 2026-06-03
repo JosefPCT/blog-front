@@ -1,9 +1,11 @@
 import { Card } from "../../../shared/ui";
 import { dateFormatter } from "../../../shared/lib";
 
+import styles from "./PostCommentsListItem.module.css";
+
 const PostCommentsListItem = ({comment}) => {
   return(
-    <li>
+    <li className={styles['no-style']}>
         <Card>
           <p>Key: {comment.publicId}</p>
           <a href={`/posts/${comment.publicId}/comments/${comment.publicId}/${comment.text}`}><p>{comment.text}</p></a>
