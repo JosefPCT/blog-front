@@ -10,6 +10,8 @@
   import { setToken } from "../../../shared/lib/tokenHelper";
   import { useAuth } from "../../../entities/user";
 
+
+  // Action function, can't be defined inside a component
   async function loginUserAction(isAuth, setIsAuth, navigate, prevUrl, prevState, formData){ 
     setToken();
     console.log("Prev url value:");

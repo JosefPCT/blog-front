@@ -20,8 +20,9 @@ const PostCommentsList = ({postPublicId, isNewComment, setIsNewComment}) => {
   return(
     <ul>
       {data.map((comment) => 
-      <Card>
+      <Card key={comment.publicId}>
         <li key={comment.publicId}>
+          <p>Key: {comment.publicId}</p>
           <a href={`/posts/${comment.publicId}/comments/${comment.publicId}/${comment.text}`}><p>{comment.text}</p></a>
           <p>Comment: {comment.text}</p>
           <p>Commented on: {dateFormatter(comment.createdAt)}</p>
