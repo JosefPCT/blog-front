@@ -91,7 +91,7 @@ const RegisterForm = () => {
       }));
     } else {
       setErrors(prevErrors => {
-        const { [name]: removedField, ...rest } = prevErrors;
+        const { [name]: _, ...rest } = prevErrors;
         return rest;
       })
 
