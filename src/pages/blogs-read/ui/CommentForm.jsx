@@ -1,4 +1,4 @@
-import { useActionState, useState } from "react";
+import { useActionState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 
 import postCreateComment from "../api/postCreateComment";
@@ -21,7 +21,7 @@ const CommentForm = ( {publicPostId, setIsNewComment}) => {
 
 
   const bindedAction = postCommentAction.bind(null, publicPostId, setIsNewComment, queryClient)
-  const [state, formAction, isPending] = useActionState(bindedAction, null);
+  const [_, formAction, isPending] = useActionState(bindedAction, null);
   
 
   return(
@@ -41,7 +41,7 @@ const CommentForm = ( {publicPostId, setIsNewComment}) => {
           >
         </textarea>
 
-        <button type="submit">Post Comment</button>
+        <button type="submit" disabled={isPending}>Post Comment</button>
     </form>
   )
 }
