@@ -15,6 +15,8 @@ export default async function fetchPostComments(postPublicId, setIsNewComment, u
     // console.log(authorData);
     comment.authorName = `${authorData.firstName} ${authorData.lastName}`;
   }
+  console.log("Comments List Data");
+  console.log(comments);
   setIsNewComment(false);
   return comments;
 }

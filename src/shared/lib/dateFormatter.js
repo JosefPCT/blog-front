@@ -1,8 +1,8 @@
 const dateFormatter = (date) => {
-    console.log("Timezone date");
-    console.log(date);
-    console.log("Converted date");
-    console.log(new Date(date));
+    // console.log("Timezone date");
+    // console.log(date);
+    // console.log("Converted date");
+    // console.log(new Date(date));
   const formatter = new Intl.DateTimeFormat('en-US', {
     month: 'long',
     day: 'numeric',
