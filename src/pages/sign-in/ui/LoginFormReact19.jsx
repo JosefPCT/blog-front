@@ -11,7 +11,7 @@
   import { useAuth } from "../../../entities/user";
 
 
-  // Action function, can't be defined inside a component
+  // **Note: You can create asynchronous action function inside the component, so you won't need to use `.bind()` to pass on custom arguments, since you can directly use any context data, state or state setter you need**
   async function loginUserAction(isAuth, setIsAuth, navigate, prevUrl, prevState, formData){ 
     setToken();
     console.log("Prev url value:");
@@ -58,6 +58,26 @@
 
     const actionWithSetter = loginUserAction.bind(null, isAuth, setIsAuth, navigate, prevUrl)
     const [state, formAction, isPending] = useActionState(actionWithSetter, null);
+
+    // async function loginUserAction(prevState, formData) {
+    //   console.log("Login...");
+
+    //   const email = formData.get("user_name");
+    //   const data = {
+    //     user_name: formData.get("user_name"),
+    //     password: formData.get("password"),
+    //   }
+
+    //   const result = await loginUser(data);
+    //   await postLogin(result, isAuth, setIsAuth);
+
+    //   setTimeout(() => {
+    //     navigate(prevUrl);
+    //   }, 2000);
+
+    // }
+
+    // const [state, formAction, isPending] = useActionState(loginUserAction, null);
     
 
     return(
