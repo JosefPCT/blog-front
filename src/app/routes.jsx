@@ -14,9 +14,12 @@ const routes = [
         { path: "/all-blogs", Component: AllBlogsPage },
         { path: "/dashboard", Component: DashboardPage },
         { path: "/posts/:publicId/:postSlug", Component: SpecificPostPage },
-        { path: "/sign-in", Component: SignInPage },
         { path: "/test", Component: TestComponent }
     ]
+  }, 
+  {
+    path: '/sign-in',
+    Component: SignInPage,
   }
 ];
 

@@ -10,7 +10,7 @@ const NavigationSection = () => {
   const { user } = useUser();
 
   return(
-    <nav>
+    <>
       <Link to='/'>Home</Link>
       <a href="#">All Blogs</a>
       <a href="#">About Us</a>
@@ -19,7 +19,7 @@ const NavigationSection = () => {
       { isAuth ? <LogoutLink />: <Link to='/sign-in'>Login</Link> }
       { isAuth && user && <span> Hello, {user.firstName}</span>}
       
-    </nav>
+    </>
   )
 }
 

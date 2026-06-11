@@ -4,22 +4,25 @@
 import { Outlet } from "react-router";
 
 import { NavigationSection } from "../../widgets/navbar";
-import { AuthProvider, UserProvider} from "../../entities/user";
-
+// import { AuthProvider, UserProvider} from "../../entities/user";
+import styles from './MainWrapper.module.css';
 
 const MainWrapper = () => {
   return(
-    <>
-      <AuthProvider>
-      <UserProvider>
-        <NavigationSection />
+    <div className={styles.gridContainer}>
+        <header className={styles.header}>
+          <div>Logo</div>
+          <nav className={styles.navLinks}>
+            <NavigationSection />
+          </nav>
+        </header>
 
-        <Outlet />
-    
-        <footer>Copyright 2026</footer>
-      </UserProvider>
-      </AuthProvider>
-    </>
+        <main className={styles.mainContent}>
+          <Outlet />
+        </main>
+        
+        <footer className={styles.footer}>Copyright 2026</footer>
+    </div>
   )
 }
 
