@@ -30,13 +30,7 @@
   align-items: center;
 }
 
-.navLinks {
-  display: flex;
-  gap: 1.5rem;
-}
 
-.navLinks a{
-}
 
 /* Desktop Layout: Side by Side Columns */
 @media (min-width: 768px) {

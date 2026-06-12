@@ -1,6 +1,7 @@
-import { Link } from "react-router";
+import { NavLink } from "react-router";
 import { useAuth } from "../model/AuthContext";
 import { useUser } from "../model/UserContext";
+
 
 const LogoutLink = () => {
   const { setIsAuth } = useAuth();
@@ -13,9 +14,11 @@ const LogoutLink = () => {
     setUser(null);
   }
   return(
-    <Link to="/" onClick={handleLogout}>
+    <NavLink 
+      to="/" 
+      onClick={handleLogout}>
         Logout
-    </Link>
+    </NavLink>
   )
 }
 

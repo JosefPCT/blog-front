@@ -1,0 +1,17 @@
+.navLinks {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.link{
+  text-decoration: none;
+}
+
+.navLinks a:hover {
+  color: red;
+}
+
+.active {
+  color: yellow;
+}
+
