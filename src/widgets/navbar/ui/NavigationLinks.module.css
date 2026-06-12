@@ -61,9 +61,7 @@
   opacity: 0.8;
 }
 
-.authItem{
 
-}
 
 .authLink{
   padding: 5px;
@@ -76,9 +74,6 @@
   transition: all 0.2s ease;
 }
 
-.loginBtn{
-
-}
 
 .loginBtn:hover {
   background-color: #c0deee;
