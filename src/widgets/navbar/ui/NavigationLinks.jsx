@@ -35,7 +35,7 @@ const NavigationLinks = () => {
       { isAuth ? <LogoutLink />: 
         <NavLink 
           to='/sign-in'
-          className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : styles.link }
+          className={`${styles.authLink} ${styles.authItem} ${styles.loginBtn}`}
           >Login</NavLink> }
       { isAuth && user && <span> Hello, {user.firstName}</span>}
     </div>
