@@ -32,12 +32,13 @@ const NavigationLinks = () => {
           Contact Us
       </NavLink>
 
+      { isAuth && user && <span className={styles.greeting}> Hello, {user.firstName}</span>}
       { isAuth ? <LogoutLink />: 
         <NavLink 
           to='/sign-in'
           className={`${styles.authLink} ${styles.authItem} ${styles.loginBtn}`}
           >Login</NavLink> }
-      { isAuth && user && <span> Hello, {user.firstName}</span>}
+      
     </div>
   )
 }

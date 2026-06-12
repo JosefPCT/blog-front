@@ -1,9 +1,9 @@
 // Wrapper for the whole app, defines the provider and global state to give the entire app with
 // Enables using `useContext` / `useHook`, for children components, avoids prop drilling
 // import AppWrapper from "./AppWrapper";
-import { Outlet, NavLink } from "react-router";
+import { Outlet } from "react-router";
 
-import { NavigationLinks } from "../../widgets/navbar";
+import { NavigationContent } from "../../widgets/navbar";
 // import { AuthProvider, UserProvider} from "../../entities/user";
 import styles from './MainWrapper.module.css';
 
@@ -11,10 +11,7 @@ const MainWrapper = () => {
   return(
     <div className={styles.gridContainer}>
         <header className={styles.header}>
-          <div><NavLink to="/">Logo</NavLink></div>
-          <nav className={styles.navLinks}>
-            <NavigationLinks />
-          </nav>
+          <NavigationContent />
         </header>
 
         <main className={styles.mainContent}>

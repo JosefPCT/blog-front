@@ -3,6 +3,11 @@
   gap: 1.5rem;
 }
 
+.greeting{
+  padding: 5px 0;
+  font-weight: bold;
+}
+
 .link{
   text-decoration: none;
   color: #333333;
