@@ -1,3 +1,3 @@
-import NavigationSection from "./ui/NavigationSection";
+import NavigationLinks from "./ui/NavigationLinks"
 
-export { NavigationSection }
+export { NavigationLinks }

@@ -1,11 +1,11 @@
 
 // Navigation Section of the app
 // Houses the `logout` function of the app, clearing data for both of the global context: `isAuth` and `user`
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 
 import { useAuth, useUser, LogoutLink } from "../../../entities/user";;
 
-const NavigationSection = () => {
+const NavigationLinks = () => {
   const { isAuth } = useAuth();
   const { user } = useUser();
 

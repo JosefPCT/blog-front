@@ -3,7 +3,7 @@
 // import AppWrapper from "./AppWrapper";
 import { Outlet } from "react-router";
 
-import { NavigationSection } from "../../widgets/navbar";
+import { NavigationLinks } from "../../widgets/navbar";
 // import { AuthProvider, UserProvider} from "../../entities/user";
 import styles from './MainWrapper.module.css';
 
