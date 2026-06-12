@@ -13,7 +13,7 @@ const MainWrapper = () => {
         <header className={styles.header}>
           <div>Logo</div>
           <nav className={styles.navLinks}>
-            <NavigationSection />
+            <NavigationLinks />
           </nav>
         </header>
 

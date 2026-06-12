@@ -23,4 +23,4 @@ const NavigationLinks = () => {
   )
 }
 
-export default NavigationSection;
+export default NavigationLinks;
