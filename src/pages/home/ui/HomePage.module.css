@@ -2,11 +2,46 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-areas: 
-   "hero-img"
-   "hero-txt"
+   "hero-section"
    "featured-post"
    "latest-posts"
    "newsletter";
+}
+
+.heroSectionContainer{
+  grid-area: hero-section;
+  background: linear-gradient(180deg, #fff 0%, #55c079 50%, #62a4e2 100%);
+  width: 100%;
+  height: auto;
+  min-height: 500px;
+  border-radius: 15px;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroSectionContainer p{
+  /* background-color: red; */
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-weight: 600;
+  padding: 10px;
+  margin-top: -60px;
+  align-self: center;
+}
+
+.heroSectionContainer h2{ 
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: clamp(2.5rem, 5vw, 5rem); /* Responsive sizing */
+  font-weight: 800; /* Extra Bold */
+  letter-spacing: -0.02em; /* Tightens space for impact */
+  line-height: 1.1;
+  width: 70%;
+  padding: 15px;
+  /* background-color: blue; */
+  align-self: center;
 }
 
 .heroImgContainer{
@@ -35,7 +70,7 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto 1fr;
     grid-template-areas:
-      "hero-img hero-txt"
+      "hero-section hero-section"
       "featured-post featured-post"
       "latest-posts latest-posts"
       "newsletter newsletter";
@@ -43,11 +78,5 @@
     
   }
 
-  .heroImgContainer{
-    justify-self: center;
-  }
-
-  .heroTextContainer{
-    justify-self: center;
-  }
+  
 }
