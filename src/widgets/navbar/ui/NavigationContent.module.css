@@ -3,3 +3,19 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.headerLogo {
+  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #1a1a1a;
+}
+
+.headerLogo a{
+  text-decoration: none;
+  color: #1a1a1a;
+}
