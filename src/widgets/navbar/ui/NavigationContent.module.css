@@ -19,3 +19,10 @@
   text-decoration: none;
   color: #1a1a1a;
 }
+
+
+.logoImgContainer img{
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+}

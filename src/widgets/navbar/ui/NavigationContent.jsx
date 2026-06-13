@@ -2,13 +2,13 @@ import { NavLink } from "react-router";
 
 import NavigationLinks from "./NavigationLinks";
 import styles from "./NavigationContent.module.css";
-import logo from "./../../../shared/assets/Josef.png"
+import { JosefBigLogo } from "../../../shared/assets";
 
 const NavigationContent = () => {
   return(
     <div className={styles.flexContainer}>
       {/* <div className={styles.headerLogo}><NavLink to="/">Josef</NavLink></div> */}
-      <div><NavLink to="/"><img src={logo} alt="Header Logo" srcset="" /></NavLink></div>
+      <div className={styles.logoImgContainer}><NavLink to="/"><img src={JosefBigLogo} alt="Header Logo" srcset="" /></NavLink></div>
       <nav>
         <NavigationLinks />
       </nav>
