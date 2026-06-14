@@ -20,7 +20,6 @@
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
 }
 
 .heroSectionContainer p{
@@ -39,9 +38,11 @@
   letter-spacing: -0.02em; /* Tightens space for impact */
   line-height: 1.1;
   width: 70%;
+
   padding: 15px;
   /* background-color: blue; */
   align-self: center;
+
 }
 
 .heroImgContainer{
