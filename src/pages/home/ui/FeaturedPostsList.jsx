@@ -3,11 +3,11 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchAllPosts } from "../../../shared/api";
 
 const FeaturedPostsList = () => {
-  const urlQuery = "?sort=+createdAt";
+  const urlQuery = "?sort=-comments";
 
   const { isPending, isError, data, error }= useQuery({
     queryKey: ['posts'],
-    queryFn: () => fetchAllPosts(urlQuery, 3),
+    queryFn: () => fetchAllPosts(urlQuery, 1),
   });
 
   if (isPending){
