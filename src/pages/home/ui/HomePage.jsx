@@ -9,10 +9,7 @@ export default function HomePage(){
         <HeroSection />
       </section>
       <section className={styles.featuredSection}>
-        <div>
-          <h3>Featured Post</h3>
-          <FeaturedPostSection />
-        </div>
+        <FeaturedPostSection />
       </section>
       <section className={styles.latestPostsSection}>
         <h3>Latest Posts</h3>
