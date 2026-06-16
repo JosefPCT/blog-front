@@ -1,6 +1,9 @@
 // Refactor using Tanstack Query
 import { useQuery } from "@tanstack/react-query";
+
 import fetchFeaturedPost from "../api/fetchFeaturedPost";
+import styles from "./FeaturedPostSection.module.css";
+import dateFormatter from "../../../shared/lib/dateFormatter";
 
 const FeaturedPostSection = () => {
   const urlQuery = "?sort=-comments";
@@ -19,14 +22,21 @@ const FeaturedPostSection = () => {
   }
 
   return (
-    <div>
-      <div>
-        <p>Tag</p>
-        <a href={`/posts/${data.publicId}/${data.title}`}>{data.title}</a>
+    
+    <div className={styles.sectionContainer}>
+      <div className={styles.contentContainer}>
+        <a href="#"><span className={styles.contentTag}>Informative</span></a>
+        <h2 className={styles.contentTitle}><a href={`/posts/${data.publicId}/${data.title}`}>{data.title}</a></h2>
+        <p className={styles.contentDate}>{dateFormatter(data.createdAt)}</p>
       </div>
-      <div>
-        Image
+      
+      
+      <div className={styles.imageContainer}>
+        <a href={`/posts/${data.publicId}/${data.title}`}>
+          <img src="https://images.unsplash.com/photo-1623039405147-547794f92e9e?q=80&w=826&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Article Photo" srcset="" />
+        </a>
       </div>
+      
     </div>
     // <ul>
     //   {data.map((post) => 

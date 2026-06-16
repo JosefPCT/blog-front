@@ -10,7 +10,7 @@ export default function HomePage(){
       </section>
       <section className={styles.featuredSection}>
         <div>
-          <h3>Featured Posts</h3>
+          <h3>Featured Post</h3>
           <FeaturedPostSection />
         </div>
       </section>
