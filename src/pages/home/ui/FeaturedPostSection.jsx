@@ -2,7 +2,7 @@
 import { useQuery } from "@tanstack/react-query";
 import fetchFeaturedPost from "../api/fetchFeaturedPost";
 
-const FeaturedPostsList = () => {
+const FeaturedPostSection = () => {
   const urlQuery = "?sort=-comments";
 
   const { isPending, isError, data, error }= useQuery({
@@ -20,7 +20,13 @@ const FeaturedPostsList = () => {
 
   return (
     <div>
-      <a href={`/posts/${data.publicId}/${data.title}`}>{data.title}</a>
+      <div>
+        <p>Tag</p>
+        <a href={`/posts/${data.publicId}/${data.title}`}>{data.title}</a>
+      </div>
+      <div>
+        Image
+      </div>
     </div>
     // <ul>
     //   {data.map((post) => 
@@ -34,7 +40,7 @@ const FeaturedPostsList = () => {
   )
 }
 
-export default FeaturedPostsList;
+export default FeaturedPostSection;
 
 // Normal Implementation
 // import { useState, useEffect } from "react";

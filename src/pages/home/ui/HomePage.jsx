@@ -1,4 +1,4 @@
-import FeaturedPostsList from "./FeaturedPostsList"
+import FeaturedPostSection from "./FeaturedPostSection";
 import HeroSection from "./HeroSection";
 import styles from "./HomePage.module.css";
 
@@ -11,7 +11,7 @@ export default function HomePage(){
       <section className={styles.featuredSection}>
         <div>
           <h3>Featured Posts</h3>
-          <FeaturedPostsList />
+          <FeaturedPostSection />
         </div>
       </section>
       <section className={styles.latestPostsSection}>
