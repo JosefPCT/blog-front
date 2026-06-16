@@ -12,14 +12,6 @@
   grid-area: hero-section
 }
 
-.heroImgContainer{
-  grid-area: hero-img;
-}
-
-.heroTextContainer{
-  grid-area: hero-txt;
-}
-
 .featuredSection{
   grid-area: featured-post;
 }
