@@ -1,13 +1,13 @@
 // Refactor using Tanstack Query
 import { useQuery } from "@tanstack/react-query";
-import { fetchAllPosts } from "../../../shared/api";
+import fetchFeaturedPost from "../api/fetchFeaturedPost";
 
 const FeaturedPostsList = () => {
   const urlQuery = "?sort=-comments";
 
   const { isPending, isError, data, error }= useQuery({
     queryKey: ['posts'],
-    queryFn: () => fetchAllPosts(urlQuery, 1),
+    queryFn: () => fetchFeaturedPost(urlQuery),
   });
 
   if (isPending){
@@ -19,15 +19,18 @@ const FeaturedPostsList = () => {
   }
 
   return (
-    <ul>
-      {data.map((post) => 
-      <li key={post.publicId}>
-        <a href={`/posts/${post.publicId}/${post.title}`}><p>{post.title}</p></a>
-        <p>{post.text}</p>
-        <p>{post.createdAt}</p>
-        <p>{post.authorName}</p>
-      </li>)}
-    </ul>
+    <div>
+      <a href={`/posts/${data.publicId}/${data.title}`}>{data.title}</a>
+    </div>
+    // <ul>
+    //   {data.map((post) => 
+    //   <li key={post.publicId}>
+    //     <a href={`/posts/${post.publicId}/${post.title}`}><p>{post.title}</p></a>
+    //     <p>{post.text}</p>
+    //     <p>{post.createdAt}</p>
+    //     <p>{post.authorName}</p>
+    //   </li>)}
+    // </ul>
   )
 }
 
