@@ -8,98 +8,8 @@
    "newsletter";
 }
 
-.heroSectionContainer{
-  grid-area: hero-section;
-  position: relative;
-  min-height: 50vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: 
-    linear-gradient(to bottom, #ffffff 0%, transparent 100%),
-    linear-gradient(to right, #069b9b 0%, #b3ebab 40%, #9ee794 60%, #94dfe9 100%);  
-  background-size: cover;
-  background-position: center;
-  border-radius: 15px;
-  
-}
-
-.heroBgOverlay{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba (0, 0, 0, 0.55);
-  z-index: 1;
-}
-
-.heroContent{
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  max-width: 800px;
-  color: #ffffff;
-}
-
-.heroTitle{
-  font-size: 2.5rem;
-  font-size: clamp(2.5rem, 5vw, 5rem);
-  font-weight: 800;
-  letter-spacing: -0.025rem;
-  margin-bottom: 1.25rem;
-  color: #1a1a1a;
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-}
-
-.heroSubtitle, .heroTopSubtitle{
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 2.5rem;
-  color: #241A14;
-}
-
-.heroTopSubtitle{
-  color: #241A14; 
-}
-
-.heroBtn{
-  
-  padding: 0.875rem 2rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #55c079;
-  background-color: #ffffff;
-  border: none;
-  border-radius: 9999px; /* Pill Shape*/
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.heroBtn:hover{
-  transform: scale(1.05);
-}
-
-/* .heroSectionContainer p{
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-  font-weight: 600;
-  padding: 10px;
-  margin-top: -60px;
-  align-self: center;
-} */
-
-.heroSectionContainer h2{ 
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: clamp(2.5rem, 5vw, 5rem); /* Responsive sizing */
-  font-weight: 800; /* Extra Bold */
-  letter-spacing: -0.02em; /* Tightens space for impact */
-  line-height: 1.1;
-  width: 70%;
-  padding: 15px;
-  /* background-color: blue; */
-  align-self: center;
+.heroSection{
+  grid-area: hero-section
 }
 
 .heroImgContainer{
@@ -110,15 +20,15 @@
   grid-area: hero-txt;
 }
 
-.featuredPostContainer{
+.featuredSection{
   grid-area: featured-post;
 }
 
-.latestPostsContainer{
+.latestPostsSection{
   grid-area: latest-posts;
 }
 
-.newsletterContainer{
+.newsletterSection{
   grid-area: newsletter;
 }
 
@@ -135,14 +45,4 @@
     max-width: 1600px;
     
   }
-
-  .heroTitle{
-    font-size: 3.5rem;
-  }
-
-  .heroTopSubtitle, .heroSubtitle{
-    font-size: 1.35rem;
-  }
-
-  
 }
