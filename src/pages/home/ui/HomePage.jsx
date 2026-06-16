@@ -5,15 +5,14 @@ export default function HomePage(){
   return(
     <div className={styles.landingPageContainer}>
       <div className={styles.heroSectionContainer}>
-        <p>Aspiring Developer</p>
-        <h2>Hi, I'm Josef! I am an aspiring developer and create websites for a hobby</h2>
-      </div>
-      {/* <div className={styles.heroImgContainer}>
-          Hero Image
+        <div className={styles.heroBgOverlay}></div>
+        <div className={styles.heroContent}>
+            <p className={styles.heroTopSubtitle}>Aspiring Developer</p>
+            <h1 className={styles.heroTitle}>Hi, I'm Josef!</h1>
+            <p className={styles.heroSubtitle}>I am an aspiring developer and create websites for a hobby</p>
+            <button className={styles.heroBtn}>See blogs</button>
         </div>
-        <div className={styles.heroTextContainer}>
-          Hero Text
-      </div> */}
+      </div>
       <div className={styles.featuredPostContainer}>
         <h3>Featured Posts</h3>
         <FeaturedPostsList />
