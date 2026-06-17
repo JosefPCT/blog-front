@@ -1,40 +1,47 @@
-a {
+/* Removes underline styling of all links in this module */
+.linkNoDecoration{
   text-decoration: none;
 }
 
 .sectionContainer{
+  /* Mobile first design, makes the text content and image vertically stack on each other by default */
+  display: flex;
+  flex-direction: column-reverse;
+  /* width: 100%;
+  min-height: 400px; */
+
+  /* Border design for the whole feature post content section */
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 12px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 
               0 2px 4px -1px rgba(0, 0, 0, 0.03);
-  
-  width: 100%;
-  min-height: 400px;
-  display: flex;
-  flex-direction: column-reverse;
 }
 
 .contentContainer{
-  /* background-color: blue; */
-  padding: 3rem;
-  flex: 1 1 100%;
-
-  display: flex;
+  flex: 1 1 100%; /* By placing both inside the two flex item, makes it so they are equal in size when shrinking and growing*/
+  
+  /* So we can use `align-self` on certain flex items to position them correctly */
+  display: flex; 
   flex-direction: column;
+  gap: 10px;
+
+  padding: 3rem; 
 }
 
 .contentTag{
+  /* align-self: flex-start; */
+  /* text-align: left; */
+
   font-family: "Playfair Display", Georgia, "Times New Roman", serif;
   border: 1px solid rgba(0, 0, 0, 0.08);
   background: #cff1d7;
   border-radius: 5px;
   padding: 5px;
   color: #1a1a1a;
-  text-align: left;
   font-size: 1.1rem;
   font-weight: 500;
-  align-self: flex-start;
+  
 }
 
 .contentTitle{
@@ -43,7 +50,6 @@ a {
   font-weight: 800; /* Extra Bold */
   letter-spacing: -0.02em; /* Tightens space for impact */
   line-height: 1.1;
- 
 }
 
 .contentTitle a{
@@ -52,8 +58,10 @@ a {
 }
 
 .contentDate{
+  /* Pushes the date on the bottom of the container */
   margin-top: auto;
   margin-bottom: 0px;
+
   font-family: "Playfair Display", Georgia, "Times New Roman", serif;
   font-size: .9rem;
   color: #8a8686;
@@ -61,11 +69,12 @@ a {
 
 .imageContainer{
   flex: 1 1 100%;
-  overflow: hidden;
+  overflow: hidden; /* So image won't go beyond the border*/
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
   border-radius: 10px;
   /* min-height: 300px;
   max-height: 600px;
@@ -77,17 +86,18 @@ a {
 }
 
 .imageContainer a{
-  display: block;
-  width: 100%;
+  /* display: block;
+  width: 100%; */
 }
 
 .imageContainer img{
+  /* Responsive Image Sizing */
   width: 100%;
   height: 400px;
   object-fit: cover;
   object-position: center;
   
-  display: block;
+  /* display: block; */
 }
 
 /* .bgImage{

@@ -27,7 +27,7 @@ const FeaturedPostSection = () => {
       <h3>Featured Post</h3>
       <div className={styles.sectionContainer}>
         <div className={styles.contentContainer}>
-          <a href="#"><span className={styles.contentTag}>Informative</span></a>
+          <a className={styles.linkNoDecoration} href="#"><span className={styles.contentTag}>Informative</span></a>
           <h2 className={styles.contentTitle}><a href={`/posts/${data.publicId}/${data.title}`}>{data.title}</a></h2>
           <p className={styles.contentDate}>{dateFormatter(data.createdAt)}</p>
         </div>
