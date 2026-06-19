@@ -15,9 +15,9 @@ const LatestPostListItem = ({post, index, limit}) => {
           </div>
           <div className={styles.textContainer}>
             {/* <p>Test: {index}</p> */}
-            <p>Tag</p>
-            <a href={`/posts/${post.publicId}/${post.title}`}><p>{post.title}</p></a>
-            <p>{dateFormatter(post.createdAt)}</p>
+            <span className={styles.contentTag}>Tag</span>
+            <h3 className={styles.contentTitle}><a href={`/posts/${post.publicId}/${post.title}`}>{post.title}</a></h3>
+            <span className={styles.contentDate}>{dateFormatter(post.createdAt)}</span>
           </div>
         </CardWrapper>
       </li>

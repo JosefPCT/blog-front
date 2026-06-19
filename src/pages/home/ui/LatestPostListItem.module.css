@@ -2,6 +2,7 @@
 
 }
 
+
 .imgContainer img{
   border-radius: 15px;
 }
@@ -12,6 +13,41 @@
 
 .textContainer {
   padding: 15px;
+
+}
+
+.contentTag{
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #cff1d7;
+  border-radius: 5px;
+  padding: 5px;
+  color: #1a1a1a;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.contentTitle{
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: clamp(1.5rem, 2vw, 2rem); /* Responsive sizing */
+  font-weight: 800; /* Extra Bold */
+  letter-spacing: -0.06em; /* Tightens space for impact */
+  line-height: 1.1;
+}
+
+.contentTitle a{
+  text-decoration: none;
+  color: #1a1a1a;
+}
+
+.contentDate{
+  /* Pushes the date on the bottom of the container */
+  margin-top: auto;
+  margin-bottom: 0px;
+
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: .9rem;
+  color: #8a8686;
 }
 
 /* Desktop Layout: Side by Side Columns */
