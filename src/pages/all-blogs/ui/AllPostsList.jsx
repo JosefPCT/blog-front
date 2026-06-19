@@ -19,7 +19,7 @@ const AllPostsList = () => {
 
   return (
     <ul>
-      {data.map((post) => 
+      {Array.isArray(data) && data.map((post) => 
       <li key={post.publicId}>
         <a href={`/posts/${post.publicId}/${post.title}`}><p>{post.title}</p></a>
         <p>{post.text}</p>

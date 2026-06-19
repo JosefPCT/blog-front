@@ -1,0 +1,20 @@
+.listItemContainer{
+
+}
+
+.imgContainer img{
+  border-radius: 15px;
+}
+
+.hide{
+  display: none;
+}
+
+.textContainer {
+  padding: 15px;
+}
+
+/* Desktop Layout: Side by Side Columns */
+@media (min-width: 768px) {
+
+}

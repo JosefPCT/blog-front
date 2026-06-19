@@ -1,0 +1,48 @@
+.sectionContainer{
+  
+}
+
+.headerContainer{
+  display: flex;
+  justify-content: space-between;
+}
+
+.headerContainer button{
+  padding: 5px;
+  font-size: .9rem;
+}
+
+.buttonContainer{
+  margin: auto 0;
+  padding: 10px;
+}
+
+.linkButton{
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 10px;
+  border-color: #fff;
+  color: #333333;
+  border: none;
+  background-color: #F0F0F0;
+  transition: all 0.2s ease;
+}
+
+.linkButton a{
+  text-decoration: none;
+  color: #333333;
+}
+
+
+.linkButton:hover {
+  background-color: #aad9f3;
+}
+
+.mainContainer{
+  
+}
+
+.footerContainer {
+  text-align: center;
+}

@@ -9,6 +9,10 @@ const dateFormatter = (date) => {
     year: 'numeric'
   });
 
+  if(!date){
+    return;
+  }
+
   return formatter.format(new Date(date));
 }
 
