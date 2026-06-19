@@ -16,14 +16,14 @@ const LatestPostsSection = () => {
         <div className={styles.headerContainer}>
             <h3>Latest Posts</h3>
             <div className={styles.buttonContainer}>
-                <button className={styles.linkButton}><NavLink to='/all-blogs'>View All</NavLink></button>
+                <button className={styles.linkButton}><NavLink to='/all-blogs'>View All <span className={styles.alignSymbol}>&#8594;</span></NavLink></button>
             </div>
         </div>
         <div className={styles.mainContainer}>
             <LatestPostsList limit={showLimit}/>
         </div>
         <div className={styles.footerContainer}>
-            { showLimit >= 15 ? <button><NavLink to='/all-blogs'>View All Blogs</NavLink></button> : <button onClick={onLoadMore}>Load more</button>}
+            { showLimit >= 15 ? <button className={styles.linkButton}><NavLink to='/all-blogs'>View All Blogs <span className={styles.alignSymbol}>&#8594;</span></NavLink></button> : <button onClick={onLoadMore} className={styles.linkButton}>Load more +</button>}
         </div>
     </section>
   )

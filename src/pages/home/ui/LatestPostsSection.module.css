@@ -27,6 +27,8 @@
   border: none;
   background-color: #F0F0F0;
   transition: all 0.2s ease;
+
+  vertical-align: middle;
 }
 
 .linkButton a{
@@ -39,10 +41,20 @@
   background-color: #aad9f3;
 }
 
+.alignSymbol{
+  display: inline-block;
+  vertical-align: middle;
+
+  position: relative;
+  top: -3px;
+}
+
 .mainContainer{
   
 }
 
 .footerContainer {
   text-align: center;
+  padding: 15px;
 }
+
