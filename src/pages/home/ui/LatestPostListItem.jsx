@@ -3,10 +3,10 @@ import { dateFormatter } from "../../../shared/lib";
 
 import styles from "./LatestPostListItem.module.css";
 
-const LatestPostListItem = ({post, index, limit}) => {
+const LatestPostListItem = ({post}) => {
   return(
     
-      <li className={ index >= limit ? styles.hide : ''} >
+      <li>
         <CardWrapper>
           <div className={styles.imgContainer}>
             <a href={`/posts/${post.publicId}/${post.title}`}>

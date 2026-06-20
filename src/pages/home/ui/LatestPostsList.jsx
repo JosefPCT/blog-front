@@ -20,10 +20,13 @@ const LatestPostsList = ({limit}) => {
   if (isError){
     return <span>Error: {error.message} </span>
   }
+
+  const visiblePosts = data.slice(0, limit);
+
   return(
     <ul className={styles.noStyle}>
-      {data.map((post, index) => 
-        <LatestPostListItem key={post.publicId} post={post} index={index} limit={limit} />
+      {data && visiblePosts.map((post) => 
+        <LatestPostListItem key={post.publicId} post={post} />
       )}
     </ul>
   )
