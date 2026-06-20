@@ -24,7 +24,7 @@ export default function NewsletterSection(){
           </form>
         </div>
         <div className={styles.subheadingContainer}>
-            <span className={styles.message}>{isSubmit ? 'Email submitted successfully' : ''}</span>
+            {isSubmit ? <span className={styles.message}> Email submitted successfully &#10003; </span>  : ''}
             <span className={styles.subheading}>Zero spam, just the good stuff</span>
         </div>
       </div>

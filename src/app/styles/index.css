@@ -73,6 +73,9 @@ body {
   color: #2d3748; 
   
   background-color: #ffffff;
+
+  /* Used in the full-bleed background sections, to prevent horizontal scrollbars */
+  overflow-x: hidden;
 }
 
 /* Post Headings */
