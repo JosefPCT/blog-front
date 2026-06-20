@@ -14,7 +14,6 @@ const LatestPostListItem = ({post, index, limit}) => {
             </a>
           </div>
           <div className={styles.textContainer}>
-            {/* <p>Test: {index}</p> */}
             <span className={styles.contentTag}>Tag</span>
             <h3 className={styles.contentTitle}><a href={`/posts/${post.publicId}/${post.title}`}>{post.title}</a></h3>
             <span className={styles.contentDate}>{dateFormatter(post.createdAt)}</span>

@@ -1,6 +1,7 @@
 import FeaturedPostSection from "./FeaturedPostSection";
 import HeroSection from "./HeroSection";
 import LatestPostsSection from "./LatestPostsSection";
+import NewsletterSection from "./NewsletterSection";
 import styles from "./HomePage.module.css";
 
 export default function HomePage(){
@@ -16,7 +17,7 @@ export default function HomePage(){
         <LatestPostsSection />
       </section>
       <section className={styles.newsletterSection}>
-        Newsletter
+        <NewsletterSection />
       </section>
   
       

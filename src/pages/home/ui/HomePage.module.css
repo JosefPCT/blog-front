@@ -10,6 +10,8 @@ h3{
    "featured-post"
    "latest-posts"
    "newsletter";
+
+  gap: 12px;
 }
 
 .heroSection{

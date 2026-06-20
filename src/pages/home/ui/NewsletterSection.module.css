@@ -1,0 +1,114 @@
+.sectionContainer{
+  background-color: aquamarine;
+  
+  margin: 4rem 0; 
+  padding: 15px;
+
+  /* Make the section breakfree from the limited parent container, calculates margin to shift the element to left and hug the border of the border screen*/
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  
+  /* Makes multiple flex item children to align in the center responsively */
+  /* Can control how big the section by configuring the min-height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+
+  /* Font styling for the section */
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+}
+
+/* Fluid styling, Makes the child flex item responsive, and not break on mobile */
+/* Can change max-width to control layout in bigger screen sizes */
+.headingContainer{
+  width: 90%;          /* Uses most of the screen on small devices */
+  max-width: 900px;    /* Caps the size on large desktop monitors */
+  height: auto;        /* Keeps aspect ratio flexible */
+  text-align: center;
+}
+
+/* Fluid styling, Makes the child flex item responsive, and not break on mobile */
+/* Can change max-width to control layout in bigger screen sizes */
+.formContainer{
+  width: 90%;          /* Uses most of the screen on small devices */
+  max-width: 900px;    /* Caps the size on large desktop monitors */
+  height: auto;        /* Keeps aspect ratio flexible */
+  text-align: center;
+}
+
+/* Fluid styling, Makes the child flex item responsive, and not break on mobile */
+/* Can change max-width to control layout in bigger screen sizes */
+.subheadingContainer{
+  width: 90%;          /* Uses most of the screen on small devices */
+  max-width: 900px;    /* Caps the size on large desktop monitors */
+  height: auto;        /* Keeps aspect ratio flexible */
+  text-align: center;
+
+  /* Layouts the span children properly */
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+
+  /* Specific Font Styling for subheadings */
+  font-size: .9rem;
+  color: #8a8686;
+  
+}
+
+.heading{
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.05rem;
+  margin-bottom: 1.25rem;
+  color: #1a1a1a;
+}
+
+.formContainer form {
+  /* Layouts form inputs and buttons */
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.formContainer input {
+  border-radius: 8px;
+  border: none;
+  padding: 8px 100px 8px 12px;
+}
+
+/* Can create a wrapper component using this styling for buttons */
+.formContainer button {
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 10px;
+  border-color: #fff;
+  color: #333333;
+  border: none;
+  background-color: #F0F0F0;
+  transition: all 0.2s ease;
+
+}
+
+.formContainer button:hover {
+  background-color: #aad9f3;
+}
+
+/* Aligns the symbol code with the text */
+.alignSymbol{
+  position: relative;
+  top: -3px;
+}
+
+.message{
+  color: #0f5132;
+}
+
+
+
+@media (min-width: 768px) {
+  
+}
