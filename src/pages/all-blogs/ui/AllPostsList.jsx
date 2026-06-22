@@ -1,8 +1,23 @@
 import { useQuery } from "@tanstack/react-query";
+
 import { fetchAllPosts } from "../../../shared/api";
 
-const AllPostsList = () => {
-  const urlQuery = "?sort=+createdAt";
+const AllPostsList = ( {searchParams, setSearchParams}) => {
+  const category = searchParams.get("category") || "";
+  const value = searchParams.get("value") || "";
+  // const urlQuery = "?sort=+createdAt";
+  // const urlQuery = `?${category}=${value}`;
+  const urlQuery = searchParams.has("category") && searchParams.has("value") ? `?${category}=${value}` : "?sort=+createdAt";
+
+  console.log("Test");
+  console.log(searchParams.get("category"));
+
+  console.log("Category");
+  console.log(category)
+  console.log("Value:");
+  console.log(value);
+
+  
   
   const { isPending, isError, data, error }= useQuery({
     queryKey: ['posts'],
