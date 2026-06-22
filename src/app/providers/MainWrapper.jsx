@@ -3,7 +3,8 @@
 // import AppWrapper from "./AppWrapper";
 import { Outlet } from "react-router";
 
-import { NavigationContent } from "../../widgets/navbar";
+import { NavigationContent, FooterSection } from "../../widgets";
+
 // import { AuthProvider, UserProvider} from "../../entities/user";
 import styles from './MainWrapper.module.css';
 
@@ -18,7 +19,9 @@ const MainWrapper = () => {
           <Outlet />
         </main>
         
-        <footer className={styles.footer}>Copyright 2026</footer>
+        <footer className={styles.footer}>
+          <FooterSection />
+        </footer>
     </div>
   )
 }

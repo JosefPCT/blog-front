@@ -1,0 +1,54 @@
+.footerContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brandContainer{
+  display: grid;
+  place-items: center;
+}
+
+.brandContainer img{
+  height: 150px;
+  width: auto;
+  object-fit: contain;
+}
+
+.linksContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.linksContainer ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.linksContainer li{
+  color: #333333;
+}
+
+.linksContainer span{
+  color: #726e6e;
+}
+
+
+
+/* Desktop Layout: Side by Side Columns */
+@media (min-width: 768px) {
+  .footerContainer{
+    display: grid;
+    grid-template-columns: 40% 60%;
+  }   
+
+  .linksContainer{
+    display: flex;
+    flex-direction: row;
+    gap: clamp(1rem, 6vw, 6rem);
+    /* gap: 3vw; */
+    /* background-color: red; */
+  }
+}
