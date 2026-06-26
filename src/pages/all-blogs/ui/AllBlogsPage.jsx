@@ -2,6 +2,7 @@ import { useSearchParams } from "react-router";
 
 import AllPostsList from "./AllPostsList";
 import SearchBox from "./SearchBox";
+import SearchBoxControlled from "./SearchBoxControlled";
 
 
 
@@ -11,7 +12,7 @@ const AllBlogsPage = () => {
   return (
     <>
       <h1>All Blogs</h1>
-      <SearchBox searchParams={searchParams} setSearchParams={setSearchParams} />
+      <SearchBoxControlled searchParams={searchParams} setSearchParams={setSearchParams} />
       <AllPostsList searchParams={searchParams} setSearchParams={setSearchParams} />
     </>
   )

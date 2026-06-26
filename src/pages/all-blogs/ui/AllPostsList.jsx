@@ -9,6 +9,11 @@ const AllPostsList = ( {searchParams, setSearchParams}) => {
   // const urlQuery = `?${category}=${value}`;
   const urlQuery = searchParams.has("category") && searchParams.has("value") ? `?${category}=${value}` : "?sort=+createdAt";
 
+  const finalQuery = "";
+
+  let query = "?sort=+createdAt";
+  query = searchParams.has("title") &&  searchParams.has("value") ? query + `title=${value}` : "";
+
   console.log("Test");
   console.log(searchParams.get("category"));
 
@@ -20,7 +25,7 @@ const AllPostsList = ( {searchParams, setSearchParams}) => {
   
   
   const { isPending, isError, data, error }= useQuery({
-    queryKey: ['posts'],
+    queryKey: ['allPosts', urlQuery],
     queryFn: () => fetchAllPosts(urlQuery),
   });
 
