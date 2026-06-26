@@ -18,15 +18,19 @@ const SearchBoxControlled = ( {searchParams, setSearchParams }) => {
   const onSubmitHandler = (e) => {
     e.preventDefault();
     console.log("Submitted");
-    setSearchParams({value: userInput, category: "title"});
+    userInput === "" ? setSearchParams() : setSearchParams({ title: userInput, text: userInput, authorFirstName: userInput, authorLastName: userInput, mode: "or"});
     queryClient.invalidateQueries({ queryKey: ['allPosts']});
+  }
+
+  const onKeyUpHandler = (e) => {
+    console.log("Key up triggered");
   }
 
   return(
     <div>
         <p>Search Box Controlled</p>
         <form onSubmit={onSubmitHandler}>
-          <input type="text" name="userInput" id="userInput" onChange={onChangeInputHandler} onBlur={onBlurHandler} value={userInput}/>
+          <input type="text" name="userInput" id="userInput" onChange={onChangeInputHandler} onBlur={onBlurHandler} onKeyUp={onKeyUpHandler} value={userInput}/>
           <button type="submit">Search</button>
         </form>
     </div>

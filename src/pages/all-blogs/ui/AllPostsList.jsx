@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { useLocation } from "react-router";
 
 import { fetchAllPosts } from "../../../shared/api";
 
@@ -8,6 +9,12 @@ const AllPostsList = ( {searchParams, setSearchParams}) => {
   // const urlQuery = "?sort=+createdAt";
   // const urlQuery = `?${category}=${value}`;
   const urlQuery = searchParams.has("category") && searchParams.has("value") ? `?${category}=${value}` : "?sort=+createdAt";
+
+  // Using `useLocation` instead of useSearchParams
+  const location = useLocation();
+  const rawQuery = location.search;
+  console.log("Raw query");
+  console.log(rawQuery);
 
   const finalQuery = "";
 
@@ -25,8 +32,8 @@ const AllPostsList = ( {searchParams, setSearchParams}) => {
   
   
   const { isPending, isError, data, error }= useQuery({
-    queryKey: ['allPosts', urlQuery],
-    queryFn: () => fetchAllPosts(urlQuery),
+    queryKey: ['allPosts', rawQuery],
+    queryFn: () => fetchAllPosts(rawQuery),
   });
 
   if (isPending){
