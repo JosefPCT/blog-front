@@ -4,7 +4,7 @@ import { useQueryClient } from "@tanstack/react-query";
 
 import ByDateInput from "./ByDateInput";
 
-const SearchBoxControlled = ( {searchParams, setSearchParams }) => {
+const SearchBoxControlled = ( { setSearchParams, page, setPage }) => {
   const [userInput, setUserInput] = useState("");
   const [toggleInput, setToggleInput] = useState("text");
 
@@ -44,10 +44,11 @@ const SearchBoxControlled = ( {searchParams, setSearchParams }) => {
     const matchResult = userInput.match(dateFormat);
     console.log(matchResult);
 
+    setPage(1);
     if(toggleInput === "text"){
-      userInput === "" ? setSearchParams() : setSearchParams({ title: userInput, text: userInput, authorFirstName: userInput, authorLastName: userInput, mode: "or"});
+      userInput === "" ? setSearchParams({ sort: "+createdAt", page: page }) : setSearchParams({ title: userInput, text: userInput, authorFirstName: userInput, authorLastName: userInput, mode: "or", page: page});
     } else {
-      setSearchParams({ dateFrom: data.dateFrom, dateTo: data.dateTo});
+      setSearchParams({ dateFrom: data.dateFrom, dateTo: data.dateTo, page: page});
     }
 
     
