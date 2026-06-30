@@ -46,9 +46,9 @@ const SearchBoxControlled = ( { setSearchParams, page, setPage }) => {
 
     setPage(1);
     if(toggleInput === "text"){
-      userInput === "" ? setSearchParams({ sort: "+createdAt", page: page }) : setSearchParams({ title: userInput, text: userInput, authorFirstName: userInput, authorLastName: userInput, mode: "or", page: page});
+      userInput === "" ? setSearchParams({ sort: "+createdAt", page: page }) : setSearchParams({ title: userInput, text: userInput, authorFirstName: userInput, authorLastName: userInput, mode: "or", page: page, sort: "+createdAt"});
     } else {
-      setSearchParams({ dateFrom: data.dateFrom, dateTo: data.dateTo, page: page});
+      setSearchParams({ dateFrom: data.dateFrom, dateTo: data.dateTo, page: page, sort: "+createdAt"});
     }
 
     
