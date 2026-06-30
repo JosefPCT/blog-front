@@ -6,6 +6,7 @@ import AllPostsList from "./AllPostsList";
 import SearchBox from "./SearchBox";
 import SearchBoxControlled from "./SearchBoxControlled";
 import PageSetterSection from "./PageSetterSection";
+import SortingDropDown from "./SortingDropdown";
 
 
 const AllBlogsPage = () => {
@@ -34,6 +35,7 @@ const AllBlogsPage = () => {
       <SearchBoxControlled setSearchParams={setSearchParams} page={page} setPage={setPage} />
 
       <MainSection />
+      <SortingDropDown addQueryParam={addQueryParam} />
       <AllPostsList searchParams={searchParams} page={page} />
       <PageSetterSection page={page} nextPageHandler={nextPageHandler} prevPageHandler={prevPageHandler} addQueryParam={addQueryParam} />
     </>
