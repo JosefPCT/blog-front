@@ -44,12 +44,12 @@ const SearchBoxControlled = ( { setSearchParams, page, setPage }) => {
     const matchResult = userInput.match(dateFormat);
     console.log(matchResult);
 
-    setPage(1);
     if(toggleInput === "text"){
-      userInput === "" ? setSearchParams({ sort: "+createdAt", page: page }) : setSearchParams({ title: userInput, text: userInput, authorFirstName: userInput, authorLastName: userInput, mode: "or", page: page, sort: "+createdAt"});
+      userInput === "" ? setSearchParams({ sort: "+createdAt", page: 1}) : setSearchParams({ title: userInput, text: userInput, authorFirstName: userInput, authorLastName: userInput, mode: "or", page: 1, sort: "+createdAt"});
     } else {
-      setSearchParams({ dateFrom: data.dateFrom, dateTo: data.dateTo, page: page, sort: "+createdAt"});
+      setSearchParams({ dateFrom: data.dateFrom, dateTo: data.dateTo, page: 1, sort: "+createdAt"});
     }
+    setPage(1);
 
     
     queryClient.invalidateQueries({ queryKey: ['allPosts']});
