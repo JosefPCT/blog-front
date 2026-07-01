@@ -3,7 +3,10 @@ import { useQuery } from "@tanstack/react-query";
 
 import { fetchAllPosts } from "../../../shared/api";
 
-const AllPostsList = ( { defaultQuery, limitBy }) => {
+const AllPostsList = ( { searchQuery, limitBy }) => {
+  //Checks if there's no search query adds default query
+  const defaultQuery = searchQuery ? searchQuery : `?sort=+createdAt&page=${page}`;
+  
   // const category = searchParams.get("category") || "";
   // const value = searchParams.get("value") || "";
   // const urlQuery = "?sort=+createdAt";

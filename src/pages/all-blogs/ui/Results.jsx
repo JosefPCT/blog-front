@@ -7,7 +7,7 @@ export default function Results( { resultsQuery, page, limitBy } ){
 //   let replacedQuery = replacedQuery.replace(`page=${page}`, `page=${page + 1}`);
 
   const { isPending, isError, data, error }= useQuery({
-    queryKey: ['checkNextPosts', resultsQuery],
+    queryKey: ['results', resultsQuery],
     queryFn: () => fetchAllPosts(resultsQuery, null),
   });
 
