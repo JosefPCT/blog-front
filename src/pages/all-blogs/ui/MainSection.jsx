@@ -4,8 +4,10 @@ import { useLocation } from "react-router";
 // import { fetchAllPosts } from "../../../shared/api";
 import AllPostsList from "./AllPostsList";
 import Results from "./Results";
+import SortingDropDown from "./SortingDropdown";
+import PageSetterSection from "./PageSetterSection";
 
-export default function MainSection( {page}){
+export default function MainSection( {page, setPage, setSearchParams, }){
 
   // Define how many results per page
   const limitBy = 2;
@@ -25,11 +27,29 @@ export default function MainSection( {page}){
   //   queryFn: () => fetchAllPosts(searchQuery),
   // });
 
+  const prevPageHandler = () => {
+    setPage(prev => prev - 1);
+  }
+
+  const nextPageHandler = () => {
+    setPage(prev => prev + 1);
+  }
+
+  const addQueryParam = (key, value) => {
+    setSearchParams(prevParams => {
+      const newParams = new URLSearchParams(prevParams);
+      newParams.set(key, value);
+      return newParams;
+    });
+  };
+
   return(
     <section>
         Main Section
         <Results resultsQuery={resultsQuery} page={page} limitBy={limitBy}/>
+        <SortingDropDown addQueryParam={addQueryParam} />
         <AllPostsList page={page} defaultQuery={defaultQuery} limitBy={limitBy} />
+        <PageSetterSection page={page} nextPageHandler={nextPageHandler} prevPageHandler={prevPageHandler} addQueryParam={addQueryParam} limitBy={limitBy}/>
     </section>
   )
 }

@@ -4,14 +4,14 @@ import { useLocation } from "react-router";
 import { fetchAllPosts } from "../../../shared/api";
 
 // Page Setter Section that disabled and enables next page and previous page buttons by querying the next page (page + 1) if its empty or not
-export default function PageSetterSection({ page, nextPageHandler, prevPageHandler, addQueryParam }){
+export default function PageSetterSection({ page, nextPageHandler, prevPageHandler, addQueryParam, limitBy }){
   const location = useLocation();
   let searchQuery = location.search;
   let replacedQuery = searchQuery.replace(`page=${page}`, `page=${page + 1}`);
 
   const { isPending, isError, data, error }= useQuery({
     queryKey: ['checkNextPosts', replacedQuery],
-    queryFn: () => fetchAllPosts(replacedQuery),
+    queryFn: () => fetchAllPosts(replacedQuery, limitBy),
   });
 
   if (isPending){
