@@ -12,6 +12,7 @@ const SearchBox = ({searchParams, setSearchParams}) => {
     const formData = new FormData(e.currentTarget);
     const formValues = Object.fromEntries(formData.entries());
     console.log(formValues);
+    
 
     setSearchParams("ab");
     

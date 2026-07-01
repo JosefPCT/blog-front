@@ -1,17 +1,12 @@
-import { useQuery } from "@tanstack/react-query";
+// import { useQuery } from "@tanstack/react-query";
 
-import { fetchAllPosts } from "../../../shared/api";
+// import { fetchAllPosts } from "../../../shared/api";
 
-export default function Results( { resultsQuery, page, limitBy } ){
+export default function Results( { isPending, isError, totalResults, error, page, limitBy } ){
 
 //    const resultsQuery = searchQuery.replace(`page=${page}`, 'null');
 
-  const { isPending, isError, data, error }= useQuery({
-    queryKey: ['results', resultsQuery],
-    queryFn: () => fetchAllPosts(resultsQuery, null),
-  });
 
-  const totalResults = data && data.length;
   const firstNumber = (page * limitBy) - limitBy + 1;
   const lastNumber = totalResults < (page * limitBy) ? totalResults : page * limitBy;
   
@@ -25,7 +20,7 @@ export default function Results( { resultsQuery, page, limitBy } ){
 
   return(
     <div>
-      <h3>{firstNumber} - {lastNumber} of {data && data.length} total results</h3>
+      <h3>{firstNumber} - {lastNumber} of {totalResults} total results</h3>
     </div>
   ) 
 }

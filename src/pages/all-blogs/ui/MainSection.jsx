@@ -1,7 +1,7 @@
-// import { useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useLocation } from "react-router";
 
-// import { fetchAllPosts } from "../../../shared/api";
+import { fetchAllPosts } from "../../../shared/api";
 import AllPostsList from "./AllPostsList";
 import Results from "./Results";
 import SortingDropDown from "./SortingDropdown";
@@ -19,6 +19,14 @@ export default function MainSection( {page, setPage, setSearchParams, }){
   //Checks if there's no search query adds default query
   const defaultQuery = searchQuery ? searchQuery : `?sort=+createdAt&page=${page}`;
   const resultsQuery = searchQuery.replace(`page=${page}`, 'null');
+
+    // Fetch all results without limit
+  const { isPending, isError, data, error }= useQuery({
+      queryKey: ['allResults', resultsQuery],
+      queryFn: () => fetchAllPosts(resultsQuery, null),
+    });
+
+  const totalResults = data && data.length;
 
 
   // Main fetch that gets all posts based on the query
@@ -46,7 +54,7 @@ export default function MainSection( {page, setPage, setSearchParams, }){
   return(
     <section>
         Main Section
-        <Results resultsQuery={resultsQuery} page={page} limitBy={limitBy}/>
+        <Results isPending={isPending} isError={isError} totalResults={totalResults} error={error} page={page} limitBy={limitBy} />
         <SortingDropDown addQueryParam={addQueryParam} />
         <AllPostsList page={page} defaultQuery={defaultQuery} limitBy={limitBy} />
         <PageSetterSection page={page} nextPageHandler={nextPageHandler} prevPageHandler={prevPageHandler} addQueryParam={addQueryParam} limitBy={limitBy}/>
