@@ -4,7 +4,7 @@ import { fetchAllPosts } from "../../../shared/api";
 
 export default function Results( { resultsQuery, page, limitBy } ){
 
-//   let replacedQuery = replacedQuery.replace(`page=${page}`, `page=${page + 1}`);
+//    const resultsQuery = searchQuery.replace(`page=${page}`, 'null');
 
   const { isPending, isError, data, error }= useQuery({
     queryKey: ['results', resultsQuery],
