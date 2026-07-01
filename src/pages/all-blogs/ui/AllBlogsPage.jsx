@@ -34,7 +34,7 @@ const AllBlogsPage = () => {
       <h1>All Blogs</h1>
       <SearchBoxControlled setSearchParams={setSearchParams} page={page} setPage={setPage} />
 
-      <MainSection />
+      <MainSection page={page} />
       <SortingDropDown addQueryParam={addQueryParam} />
       <AllPostsList searchParams={searchParams} page={page} />
       <PageSetterSection page={page} nextPageHandler={nextPageHandler} prevPageHandler={prevPageHandler} addQueryParam={addQueryParam} />
