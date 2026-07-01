@@ -36,7 +36,6 @@ const AllBlogsPage = () => {
 
       <MainSection page={page} />
       <SortingDropDown addQueryParam={addQueryParam} />
-      <AllPostsList searchParams={searchParams} page={page} />
       <PageSetterSection page={page} nextPageHandler={nextPageHandler} prevPageHandler={prevPageHandler} addQueryParam={addQueryParam} />
     </>
   )
