@@ -27,7 +27,9 @@ export default function Pagination({ page, nextPageHandler, prevPageHandler, spe
           <button onClick={() => {
             specificPageHandler(i+1);
             addQueryParam("page", i+1);
-          }}>{i+1}</button>
+          }}
+           disabled={ page === i + 1}
+          >{i+1}</button>
         </li>)
     }
     
