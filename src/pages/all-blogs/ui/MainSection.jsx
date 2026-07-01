@@ -5,7 +5,7 @@ import { fetchAllPosts } from "../../../shared/api";
 import AllPostsList from "./AllPostsList";
 import Results from "./Results";
 import SortingDropDown from "./SortingDropdown";
-import PageSetterSection from "./PageSetterSection";
+import Pagination from "./Pagination";
 
 export default function MainSection( {page, setPage, setSearchParams, }){
 
@@ -28,19 +28,16 @@ export default function MainSection( {page, setPage, setSearchParams, }){
 
   const totalResults = data && data.length;
 
-
-  // Main fetch that gets all posts based on the query
-  // const { isPending, isError, data, error }= useQuery({
-  //   queryKey: ['allPosts', searchQuery],
-  //   queryFn: () => fetchAllPosts(searchQuery),
-  // });
-
   const prevPageHandler = () => {
     setPage(prev => prev - 1);
   }
 
   const nextPageHandler = () => {
     setPage(prev => prev + 1);
+  }
+
+  const specificPageHandler = (num) => {
+    setPage(prev => num)
   }
 
   const addQueryParam = (key, value) => {
@@ -57,7 +54,7 @@ export default function MainSection( {page, setPage, setSearchParams, }){
         <Results isPending={isPending} isError={isError} totalResults={totalResults} error={error} page={page} limitBy={limitBy} />
         <SortingDropDown addQueryParam={addQueryParam} />
         <AllPostsList page={page} defaultQuery={defaultQuery} limitBy={limitBy} />
-        <PageSetterSection page={page} nextPageHandler={nextPageHandler} prevPageHandler={prevPageHandler} addQueryParam={addQueryParam} limitBy={limitBy}/>
+        <Pagination page={page} nextPageHandler={nextPageHandler} prevPageHandler={prevPageHandler} specificPageHandler={specificPageHandler} addQueryParam={addQueryParam} totalResults={totalResults} limitBy={limitBy}/>
     </section>
   )
 }

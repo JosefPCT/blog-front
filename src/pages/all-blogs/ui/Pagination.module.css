@@ -1,0 +1,14 @@
+.paginationSection{
+  display: flex;
+}
+
+.pagination{
+  /* margin: 0px 20px; */
+}
+
+.pagination ul{
+    display: flex;
+    list-style: none;
+    padding: 0px;
+    margin: 0px 20px;
+}

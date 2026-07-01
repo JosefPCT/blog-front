@@ -3,16 +3,36 @@ import { useLocation } from "react-router";
 
 import { fetchAllPosts } from "../../../shared/api";
 
+import styles from "./Pagination.module.css";
+
 // Page Setter Section that disabled and enables next page and previous page buttons by querying the next page (page + 1) if its empty or not
-export default function PageSetterSection({ page, nextPageHandler, prevPageHandler, addQueryParam, limitBy }){
+export default function Pagination({ page, nextPageHandler, prevPageHandler, specificPageHandler, addQueryParam, totalResults, limitBy }){
   const location = useLocation();
   let searchQuery = location.search;
   let replacedQuery = searchQuery.replace(`page=${page}`, `page=${page + 1}`);
+
+  const numberOfPages = totalResults % limitBy === 0 ? totalResults / limitBy :  Math.floor((totalResults / limitBy)) + 1;
+
 
   const { isPending, isError, data, error }= useQuery({
     queryKey: ['checkNextPosts', replacedQuery],
     queryFn: () => fetchAllPosts(replacedQuery, limitBy),
   });
+
+  function Pages(){
+    const pages = [];
+
+    for(let i = 0; i < numberOfPages; i++){
+      pages.push(<li key={i}>
+          <button onClick={() => {
+            specificPageHandler(i+1);
+            addQueryParam("page", i+1);
+          }}>{i+1}</button>
+        </li>)
+    }
+    
+    return <ul>{pages}</ul>
+  }
 
   if (isPending){
     return <span>Loading...</span>
@@ -23,14 +43,19 @@ export default function PageSetterSection({ page, nextPageHandler, prevPageHandl
   }
     
   return(
-    <div>
-        Page Setter: {page}
+    <div className={styles.paginationSection}>
+        {/* Page Setter: {page} */}
         <button onClick={() => {
           prevPageHandler();
           addQueryParam("page", page - 1);
         }} disabled={page === 1}>
           Prev
         </button>
+
+        <div className={styles.pagination}>
+          {Pages()}
+        </div>
+
         <button onClick={() => {
           nextPageHandler();
           addQueryParam("page", page + 1);
