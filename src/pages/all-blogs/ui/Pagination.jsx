@@ -9,15 +9,15 @@ import styles from "./Pagination.module.css";
 export default function Pagination({ page, nextPageHandler, prevPageHandler, specificPageHandler, addQueryParam, totalResults, limitBy }){
   const location = useLocation();
   let searchQuery = location.search;
-  let replacedQuery = searchQuery.replace(`page=${page}`, `page=${page + 1}`);
+  let nextPageQuery = searchQuery.replace(`page=${page}`, `page=${page + 1}`);
 
   // Instead of Math.floor to round down, we can use Math.ciel to round up
   const numberOfPages = totalResults % limitBy === 0 ? totalResults / limitBy :  Math.floor((totalResults / limitBy)) + 1;
 
 
   const { isPending, isError, data, error }= useQuery({
-    queryKey: ['checkNextPosts', replacedQuery],
-    queryFn: () => fetchAllPosts(replacedQuery, limitBy),
+    queryKey: ['checkNextPosts', nextPageQuery],
+    queryFn: () => fetchAllPosts(nextPageQuery, limitBy),
   });
 
   function Pages(){

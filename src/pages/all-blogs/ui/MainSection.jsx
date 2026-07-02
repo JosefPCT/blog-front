@@ -19,12 +19,13 @@ export default function MainSection( {page, setPage, setSearchParams, }){
   //Checks if there's no search query adds default query
   const defaultQuery = searchQuery ? searchQuery : `?sort=+createdAt&page=${page}`;
 
-  const resultsQuery = searchQuery.replace(`page=${page}`, '');
+
+  const allResultsQuery = searchQuery.replace(`page=${page}`, '');
 
     // Fetch all results without limit
   const { isPending, isError, data, error }= useQuery({
-      queryKey: ['allResults', resultsQuery],
-      queryFn: () => fetchAllPosts(resultsQuery, null),
+      queryKey: ['allResults', allResultsQuery],
+      queryFn: () => fetchAllPosts(allResultsQuery, null),
     });
 
   const totalResults = data && data.length;
