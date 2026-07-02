@@ -20,22 +20,22 @@ export default function Pagination({ page, nextPageHandler, prevPageHandler, spe
     queryFn: () => fetchAllPosts(nextPageQuery, limitBy),
   });
 
-  function Pages(){
-    const pages = [];
+  // function Pages(){
+  //   const pages = [];
 
-    for(let i = 0; i < numberOfPages; i++){
-      pages.push(<li key={i}>
-          <button onClick={() => {
-            specificPageHandler(i+1);
-            addQueryParam("page", i+1);
-          }}
-           disabled={ page === i + 1}
-          >{i+1}</button>
-        </li>)
-    }
+  //   for(let i = 0; i < numberOfPages; i++){
+  //     pages.push(<li key={i}>
+  //         <button onClick={() => {
+  //           specificPageHandler(i+1);
+  //           addQueryParam("page", i+1);
+  //         }}
+  //          disabled={ page === i + 1}
+  //         >{i+1}</button>
+  //       </li>)
+  //   }
     
-    return <ul>{pages}</ul>
-  }
+  //   return <ul>{pages}</ul>
+  // }
 
   if (isPending){
     return <span>Loading...</span>
@@ -56,7 +56,15 @@ export default function Pagination({ page, nextPageHandler, prevPageHandler, spe
         </button>
 
         <div className={styles.pagination}>
-          {Pages()}
+          {/* {Pages()} */}
+          {Array.from({ length: numberOfPages}, (_, i) => (
+            <button onClick={() => {
+            specificPageHandler(i+1);
+            addQueryParam("page", i+1);
+          }}
+           disabled={ page === i + 1}
+          >{i+1}</button>
+          ))}
         </div>
 
         <button onClick={() => {
