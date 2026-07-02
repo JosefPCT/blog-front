@@ -30,19 +30,19 @@ const SearchBoxControlled = ( { setSearchParams, page, setPage }) => {
     const data = Object.fromEntries(formData.entries());
     console.log(data);
 
-    const dateFormat = /^\d{4}[./-](0[1-9]|1[0-2])[./-](0[1-9]|[12]\d|3[01])$/;
-    dateFormat.test(userInput);
-    console.log("test format");
-    console.log(dateFormat.test(userInput));
-    if(dateFormat.test(userInput)){
-      console.log("Its a date");
-    } else {
-      console.log("It's not a date");
-    }
+    // const dateFormat = /^\d{4}[./-](0[1-9]|1[0-2])[./-](0[1-9]|[12]\d|3[01])$/;
+    // dateFormat.test(userInput);
+    // console.log("test format");
+    // console.log(dateFormat.test(userInput));
+    // if(dateFormat.test(userInput)){
+    //   console.log("Its a date");
+    // } else {
+    //   console.log("It's not a date");
+    // }
 
-    console.log("Matching test");
-    const matchResult = userInput.match(dateFormat);
-    console.log(matchResult);
+    // console.log("Matching test");
+    // const matchResult = userInput.match(dateFormat);
+    // console.log(matchResult);
 
     if(toggleInput === "text"){
       userInput === "" ? setSearchParams({ sort: "+createdAt", page: 1}) : setSearchParams({ title: userInput, text: userInput, authorFirstName: userInput, authorLastName: userInput, mode: "or", page: 1, sort: "+createdAt"});

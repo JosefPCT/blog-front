@@ -11,6 +11,7 @@ export default function Pagination({ page, nextPageHandler, prevPageHandler, spe
   let searchQuery = location.search;
   let replacedQuery = searchQuery.replace(`page=${page}`, `page=${page + 1}`);
 
+  // Instead of Math.floor to round down, we can use Math.ciel to round up
   const numberOfPages = totalResults % limitBy === 0 ? totalResults / limitBy :  Math.floor((totalResults / limitBy)) + 1;
 
 
