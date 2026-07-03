@@ -1,0 +1,8 @@
+.searchContainer{
+  display: flex;
+  border: 1px solid black;
+}
+
+.searchContainer input{
+  border: none;
+}

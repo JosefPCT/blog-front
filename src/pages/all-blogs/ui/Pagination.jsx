@@ -59,12 +59,14 @@ export default function Pagination({ page, nextPageHandler, prevPageHandler, spe
           {/* {Pages()} */}
           <ul>
             {Array.from({ length: numberOfPages}, (_, i) => (
-              <button onClick={() => {
-              specificPageHandler(i+1);
-              addQueryParam("page", i+1);
-            }}
-             disabled={ page === i + 1}
-             >{i+1}</button>
+              <li key={i}>
+                <button onClick={() => {
+                  specificPageHandler(i+1);
+                  addQueryParam("page", i+1);
+                }}
+                disabled={ page === i + 1}
+                >{i+1}</button>
+              </li>
             ))}
           </ul>
         </div>

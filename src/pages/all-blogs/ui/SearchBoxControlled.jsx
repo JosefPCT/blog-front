@@ -2,7 +2,13 @@ import { useState } from "react";
 // import { useSearchParams } from "react-router";
 import { useQueryClient } from "@tanstack/react-query";
 
+import SearchTextInput from "./SearchTextInput";
 import ByDateInput from "./ByDateInput";
+
+
+
+import styles from "./SearchBoxControlled.module.css";
+
 
 const SearchBoxControlled = ( { setSearchParams, page, setPage }) => {
   const [userInput, setUserInput] = useState("");
@@ -60,18 +66,14 @@ const SearchBoxControlled = ( { setSearchParams, page, setPage }) => {
   }
 
   return(
-    <div>
-        <p>Search Box Controlled</p>
+    <div class={styles.topSection}>
+      <div class={styles.searchBoxContainer}>
         { toggleInput === "text" ? <button onClick={onToggleInput}> Search By Date </button> : <button onClick={onToggleInput}> Search By Text/Char</button>}
         <form onSubmit={onSubmitHandler}>
-          
-          { toggleInput === "text" ? 
-            <input type="text" name="userInput" id="userInput" onChange={onChangeInputHandler} onBlur={onBlurHandler} onKeyUp={onKeyUpHandler} value={userInput}/> :
-            <ByDateInput />
-          }
-          
-          <button type="submit">Search</button>
+          { toggleInput === "text" ? <SearchTextInput onChangeInputHandler={onChangeInputHandler} onBlurHandler={onBlurHandler} onKeyUpHandler={onKeyUpHandler} userInput={userInput}  /> : <ByDateInput /> }
+          <button type="submit">Search</button> 
         </form>
+      </div>
     </div>
   )
 }
