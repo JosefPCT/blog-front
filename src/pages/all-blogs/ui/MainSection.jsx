@@ -7,6 +7,9 @@ import Results from "./Results";
 import SortingDropDown from "./SortingDropdown";
 import Pagination from "./Pagination";
 
+
+import styles from "./MainSection.module.css";
+
 export default function MainSection( {page, setPage, setSearchParams, }){
 
   // Define how many results per page
@@ -52,11 +55,14 @@ export default function MainSection( {page, setPage, setSearchParams, }){
 
   return(
     <section>
-        Main Section
-        <Results isPending={isPending} isError={isError} totalResults={totalResults} error={error} page={page} limitBy={limitBy} />
-        <SortingDropDown addQueryParam={addQueryParam} />
+        <div className={styles.mainHeader}>
+          <Results isPending={isPending} isError={isError} totalResults={totalResults} error={error} page={page} limitBy={limitBy} />
+          <SortingDropDown addQueryParam={addQueryParam} />
+        </div>
         <AllPostsList page={page} defaultQuery={defaultQuery} limitBy={limitBy} />
-        <Pagination page={page} nextPageHandler={nextPageHandler} prevPageHandler={prevPageHandler} specificPageHandler={specificPageHandler} addQueryParam={addQueryParam} totalResults={totalResults} limitBy={limitBy}/>
+        <div className={styles.mainFooter}> 
+          <Pagination page={page} nextPageHandler={nextPageHandler} prevPageHandler={prevPageHandler} specificPageHandler={specificPageHandler} addQueryParam={addQueryParam} totalResults={totalResults} limitBy={limitBy}/>
+        </div>
     </section>
   )
 }

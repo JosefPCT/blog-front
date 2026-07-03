@@ -6,3 +6,11 @@
 .searchContainer input{
   border: none;
 }
+
+.searchContainer input:hover{
+  width: 100%;
+}
+
+.searchContainer input:focus{
+  width: 100%;
+}

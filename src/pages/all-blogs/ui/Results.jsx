@@ -20,7 +20,7 @@ export default function Results( { isPending, isError, totalResults, error, page
 
   return(
     <div>
-      <h3>{firstNumber} - {lastNumber} of {totalResults} total results</h3>
+      <h3> Showing {firstNumber} - {lastNumber} of {totalResults}</h3>
     </div>
   ) 
 }

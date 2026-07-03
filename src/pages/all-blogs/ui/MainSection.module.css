@@ -1,0 +1,9 @@
+.mainHeader{
+  display: flex;
+  justify-content: space-between;
+}
+
+.mainFooter{
+  display: flex;
+  justify-content: center;
+}
