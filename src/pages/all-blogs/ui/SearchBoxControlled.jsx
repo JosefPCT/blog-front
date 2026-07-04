@@ -68,11 +68,13 @@ const SearchBoxControlled = ( { setSearchParams, page, setPage }) => {
   return(
     <div class={styles.topSection}>
       <div class={styles.searchBoxContainer}>
-        { toggleInput === "text" ? <button onClick={onToggleInput}> Search By Date </button> : <button onClick={onToggleInput}> Search By Text/Char</button>}
+        
         <form onSubmit={onSubmitHandler}>
           { toggleInput === "text" ? <SearchTextInput onChangeInputHandler={onChangeInputHandler} onBlurHandler={onBlurHandler} onKeyUpHandler={onKeyUpHandler} userInput={userInput}  /> : <ByDateInput /> }
-          <button type="submit">Search</button> 
+          { toggleInput === "date" ? <button type="submit">Search</button>  : ""}
         </form>
+        {/* { toggleInput === "text" ? <button onClick={onToggleInput}> Search By Date </button> : <button onClick={onToggleInput}> Search By Text/Char</button>} */}
+        { toggleInput === "text" ? <p>If you prefer to search by dates click <span onClick={onToggleInput}>here</span></p> : <p>If you prefer to search by text click <span onClick={onToggleInput}>here</span></p> }
       </div>
     </div>
   )
