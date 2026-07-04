@@ -4,8 +4,13 @@
 
 .searchBoxContainer{
   /* display: flex;
-  justify-content: center; */
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; */
+  margin: 0 auto;
   padding: 1rem;
+  width: 90%;
+
 }
 
 
