@@ -54,7 +54,7 @@ export default function MainSection( {page, setPage, setSearchParams, }){
   };
 
   return(
-    <section>
+    <section className={styles.section}>
         <div className={styles.mainHeader}>
           <Results isPending={isPending} isError={isError} totalResults={totalResults} error={error} page={page} limitBy={limitBy} />
           <SortingDropDown addQueryParam={addQueryParam} />
