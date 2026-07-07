@@ -23,8 +23,13 @@ export default function Pagination({ page, nextPageHandler, prevPageHandler, spe
   function Pages(){
     const pages = [];
 
+    let testPagesArr = [1,5,6,7,10];
+    // let testNumberPages = 10;
+    let numberOfPages = 10;
+
     for(let i = 0; i < numberOfPages; i++){
-      if(i === 0 || i === numberOfPages - 1){
+      // if(i === 0 || i === numberOfPages - 1){
+      if(testPagesArr.includes(i+1)) {
         pages.push(<li key={i}>
           <button onClick={() => {
             specificPageHandler(i+1);
