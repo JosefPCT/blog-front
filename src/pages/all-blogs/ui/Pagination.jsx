@@ -23,6 +23,7 @@ export default function Pagination({ page, nextPageHandler, prevPageHandler, spe
   function Pages(){
     const pages = [];
 
+    // Test variables 
     let testPagesArr = [1,5,6,7,10];
     // let testNumberPages = 10;
     let numberOfPages = 10;

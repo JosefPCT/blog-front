@@ -10,7 +10,7 @@ const LatestPostsList = ({limit}) => {
 
   const { isPending, isError, data, error }= useQuery({
     queryKey: ['latestPosts'],
-    queryFn: () => fetchAllPosts(urlQuery),
+    queryFn: () => fetchAllPosts(urlQuery, null),
   });
 
   if (isPending){

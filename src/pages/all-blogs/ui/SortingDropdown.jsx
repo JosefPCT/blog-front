@@ -1,3 +1,5 @@
+import styles from "./SortingDropdown.module.css";
+
 export default function SortingDropDown({addQueryParam}){
 
   const onChangeHandler = (e) => {
@@ -7,14 +9,16 @@ export default function SortingDropDown({addQueryParam}){
   }
 
   return(
-    <div>
-      <span>Sort By:</span>
-      <select name="sorting" id="sorting" onChange={onChangeHandler}>
-        <option value="+createdAt">Latest</option>
-        <option value="-createdAt">Oldest</option>
-        <option value="+title">A-Z</option>
-        <option value="-title">Z-A</option>
-      </select>
+    <div className={styles.mainContainer}>
+      <div className={styles.selectWrapper}>
+        <span>Sort By: </span>
+        <select name="sorting" id="sorting" onChange={onChangeHandler} className={styles.customSelect}>
+          <option value="+createdAt">Latest</option>
+          <option value="-createdAt">Oldest</option>
+          <option value="+title">A-Z</option>
+          <option value="-title">Z-A</option>
+        </select>
+      </div>
     </div>
   )
 }

@@ -2,6 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 // import { useLocation } from "react-router";
 
 import { fetchAllPosts } from "../../../shared/api";
+import { CardWrapper } from "../../../shared/ui";
+import AllPostsListItem from "./AllPostsListItem";
+
+import styles from "./AllPostsList.module.css";
 
 const AllPostsList = ( { defaultQuery, limitBy }) => {
   // const category = searchParams.get("category") || "";
@@ -59,14 +63,12 @@ const AllPostsList = ( { defaultQuery, limitBy }) => {
   }
 
   return (
-    <ul>
-      {Array.isArray(data) && data.map((post) => 
-      <li key={post.publicId}>
-        <a href={`/posts/${post.publicId}/${post.title}`}><p>{post.title}</p></a>
-        <p>{post.text}</p>
-        <p>{post.createdAt}</p>
-        <p>{post.authorName}</p>
-      </li>)}
+    <ul className={styles.list}>
+      {Array.isArray(data) && data.map((post) =>
+      <CardWrapper>
+        <AllPostsListItem post={post} />
+      </CardWrapper> 
+    )}
     </ul>
   )
 }

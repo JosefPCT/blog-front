@@ -1,0 +1,60 @@
+
+
+.selectWrapper{
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+}
+
+.customSelect{
+  appearance: base-select;
+  font-family: system-ui, sans-serif;
+  font-size: 1rem;
+  padding: 0.75rem 1.25rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+  color: #1e293b;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+
+  /* Use nesting or style the dropdown menu picker */
+  &::picker(select) {
+    appearance: base-select;
+    background-color: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+  }
+
+  /* Target individual options */
+  & option {
+    padding: 0.625rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+
+  /* Style options on hover/focus */
+  & option:hover {
+    background-color: #f1f5f9;
+  }
+
+  /* Style the selected option */
+  & option:checked {
+    background-color: #3b82f6;
+    color: #ffffff;
+  }
+
+  /* Style the dropdown arrow icon */
+  &::picker-icon {
+    color: #64748b;
+    transition: transform 0.2s;
+  }
+
+  /* Rotate arrow when open */
+  &:open::picker-icon {
+    transform: rotate(180deg);
+  }
+}

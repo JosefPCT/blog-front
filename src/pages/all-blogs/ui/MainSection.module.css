@@ -1,15 +1,15 @@
 .section{
-  /* background-color: aliceblue; */
   margin: 5px;
 }
 
 .mainHeader{
   display: flex;
   justify-content: space-between;
-  
+  align-items: center;
 }
 
 .mainFooter{
   display: flex;
   justify-content: center;
 }
+
