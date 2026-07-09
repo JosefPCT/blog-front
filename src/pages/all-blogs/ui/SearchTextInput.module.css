@@ -25,6 +25,7 @@
     outline: none;
     box-shadow: none;
     background-color: #F0F0F0;
+    width: 100%;
   }
 
   .searchContainer input:hover{

@@ -7,7 +7,7 @@ export default function Results( { isPending, isError, totalResults, error, page
 //    const resultsQuery = searchQuery.replace(`page=${page}`, 'null');
 
 
-  const firstNumber = (page * limitBy) - limitBy + 1;
+  const firstNumber = totalResults !== 0 ? (page * limitBy) - limitBy + 1 : 0;
   const lastNumber = totalResults < (page * limitBy) ? totalResults : page * limitBy;
   
   if (isPending){
