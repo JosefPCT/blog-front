@@ -6,7 +6,7 @@ import AllPostsList from "./AllPostsList";
 import Results from "./Results";
 import SortingDropDown from "./SortingDropdown";
 // import Pagination from "./Pagination";
-import Pagination from "./PaginationLinks";
+import Pagination from "./Pagination";
 
 
 import styles from "./MainSection.module.css";
