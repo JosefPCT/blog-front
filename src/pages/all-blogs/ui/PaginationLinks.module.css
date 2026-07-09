@@ -1,0 +1,95 @@
+:root {
+  --pag-bg-active: #2563eb;
+  --pag-text-active: #ffffff;
+  --pag-text-main: #374151;
+  --pag-text-muted: #9ca3af;
+  --pag-bg-hover: #f3f4f6;
+  --pag-border-color: #e5e7eb;
+  --pag-radius: 8px; /* Smooth squircle shape */
+  --pag-size: 40px; /* Uniform touch-target area */
+  --pag-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modernPagination{
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.paginationList {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* Spacing between digits */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.paginationBtn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--pag-size);
+  height: var(--pag-size);
+  padding: 0;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--pag-text-main);
+  background-color: transparent;
+  border: 1px solid var(--pag-border-color);
+  border-radius: var(--pag-radius);
+  cursor: pointer;
+  user-select: none;
+  transition: var(--pag-transition);
+}
+
+/* Hover & Interactive States */
+
+.paginationBtn:hover:not(:disabled):not(.isActive) {
+  background-color: var(--pag-bg-hover);
+  border-color: var(--pag-border-color);
+  color: #111827;
+}
+
+/* Active Page Highlight */
+.paginationBtn.isActive{
+  background-color: var(--pag-bg-active);
+  border-color: var(--pag-bg-active);
+  color: var(--pag-text-active);
+  font-weight: 600;
+  cursor: default;
+}
+
+/* Focus indicator for keyboard navigation accessibility */
+.paginationBtn:focus-visible{
+  outline: 2px solid var(--pag-bg-active);
+  outline-offset: 2px;
+}
+
+/* Styling for next/prev specific buttons */
+.ctrlBtn svg{
+  transition: var(--pag-transition);
+}
+
+.ctrlBtn:hover svg{
+  transform: scale(1.08); /* Minimal tactile micro-interaction */
+}
+
+/* Non-clickable structural ellipsis gap */
+.paginationEllipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--pag-size);
+  height: var(--pag-size);
+  color: var(--pag-text-muted);
+  font-size: 0.875rem;
+}
+
+/* Disabled State Management */
+.paginationBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  border-color: var(--pag-border-color);
+}

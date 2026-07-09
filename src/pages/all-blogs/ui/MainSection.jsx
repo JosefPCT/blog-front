@@ -5,7 +5,8 @@ import { fetchAllPosts } from "../../../shared/api";
 import AllPostsList from "./AllPostsList";
 import Results from "./Results";
 import SortingDropDown from "./SortingDropdown";
-import Pagination from "./Pagination";
+// import Pagination from "./Pagination";
+import Pagination from "./PaginationLinks";
 
 
 import styles from "./MainSection.module.css";
@@ -13,7 +14,7 @@ import styles from "./MainSection.module.css";
 export default function MainSection( {page, setPage, setSearchParams, }){
 
   // Define how many results per page
-  const limitBy = 2;
+  const limitBy = 3;
 
   // Using `useLocation` instead of useSearchParams
   const location = useLocation();
