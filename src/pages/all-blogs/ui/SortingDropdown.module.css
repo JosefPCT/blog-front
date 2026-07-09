@@ -1,11 +1,13 @@
 
 
-.selectWrapper{
+/* .selectWrapper{
   position: relative;
   width: 100%;
   max-width: 300px;
-}
+} */
 
+/* Main styling for the dropdown, styles the box when no choice is being selected and the style for the dropdown when selecting a choice */
+/* Needs the appearance: base-select, to enable the customization */
 .customSelect{
   appearance: base-select;
   font-family: system-ui, sans-serif;
@@ -18,7 +20,9 @@
   cursor: pointer;
   transition: border-color 0.2s, box-shadow 0.2s;
 
+  
   /* Use nesting or style the dropdown menu picker */
+  /* Styles the "picker" usually a check symbol besides the active choice */
   &::picker(select) {
     appearance: base-select;
     background-color: #ffffff;

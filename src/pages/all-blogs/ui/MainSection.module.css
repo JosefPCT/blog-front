@@ -2,12 +2,14 @@
   margin: 5px;
 }
 
+/* Style to align the results component and the sorting component */
 .mainHeader{
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+/* Aligns the pagination component */
 .mainFooter{
   display: flex;
   justify-content: center;

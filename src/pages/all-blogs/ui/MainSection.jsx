@@ -1,3 +1,4 @@
+// Subcomponent that houses subcomponents needed for the Main Section which are, a total results component, a sorting dropdown/select, the list of posts that matches the filter criteria, shows all posts by default, and the pagination buttons
 import { useQuery } from "@tanstack/react-query";
 import { useLocation } from "react-router";
 
@@ -5,9 +6,7 @@ import { fetchAllPosts } from "../../../shared/api";
 import AllPostsList from "./AllPostsList";
 import Results from "./Results";
 import SortingDropDown from "./SortingDropdown";
-// import Pagination from "./Pagination";
 import Pagination from "./Pagination";
-
 
 import styles from "./MainSection.module.css";
 
@@ -20,20 +19,23 @@ export default function MainSection( {page, setPage, setSearchParams, }){
   const location = useLocation();
   let searchQuery = location.search;
  
-  //Checks if there's no search query adds default query
+  //Checks if there's no search query adds default query, to be used by AllPostsList to fetch data depending of the page query
   const defaultQuery = searchQuery ? searchQuery : `?sort=+createdAt&page=${page}`;
 
-
+  // Customizes the search query that replaces the page query to nothing, so that the Results component can calculate the total results 
   const allResultsQuery = searchQuery.replace(`page=${page}`, '');
 
-    // Fetch all results without limit
+  // Fetch all results without limit
   const { isPending, isError, data, error }= useQuery({
       queryKey: ['allResults', allResultsQuery],
       queryFn: () => fetchAllPosts(allResultsQuery, null),
     });
 
+  // Gets the total results of the fetching without limit and stores as a number, to be used by Results component
   const totalResults = data && data.length;
 
+  // Handlers for pagination that sets the `page` state
+  // Defined here so we don't need to pass on `setPage` on the child component
   const prevPageHandler = () => {
     setPage(prev => prev - 1);
   }
@@ -43,9 +45,10 @@ export default function MainSection( {page, setPage, setSearchParams, }){
   }
 
   const specificPageHandler = (num) => {
-    setPage(prev => num)
+    setPage(num)
   }
 
+  // A helper function that creates/replaces a query key and its value, uses setSearchParams
   const addQueryParam = (key, value) => {
     setSearchParams(prevParams => {
       const newParams = new URLSearchParams(prevParams);

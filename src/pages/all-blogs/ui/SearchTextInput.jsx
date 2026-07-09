@@ -1,5 +1,6 @@
-import searchIcon from "../assets/searchicon.svg"
-
+// Subcomponent that renders the search text input
+// Uses an svg to display a "magnifying glass" icon beside the searchbox
+// Uses handlers from its parent component (SearchBoxControlled)
 import styles from "./SearchTextInput.module.css";
 
 export default function SearchTextInput( {onChangeInputHandler, onBlurHandler, onKeyUpHandler, userInput, }){

@@ -1,16 +1,17 @@
+// Subcomponent that handles rendering of the Searchbox section
+// Has state to set the user input to make it controlled and a state to toggle between text and date inputs
+// Uses setSearchParams to trigger a re-render and set the search url query and let it trigger a refetch on AllPostsList component
+// Uses useQueryClient from tanstack to invalidate the previous query from the fetching in (AllPostsList) and not use stale data
 import { useState } from "react";
-// import { useSearchParams } from "react-router";
 import { useQueryClient } from "@tanstack/react-query";
 
 import SearchTextInput from "./SearchTextInput";
 import ByDateInput from "./ByDateInput";
 
-
-
 import styles from "./SearchBoxControlled.module.css";
 
 
-const SearchBoxControlled = ( { setSearchParams, page, setPage }) => {
+const SearchBoxControlled = ( { setSearchParams, setPage }) => {
   const [userInput, setUserInput] = useState("");
   const [toggleInput, setToggleInput] = useState("text");
 
@@ -24,7 +25,11 @@ const SearchBoxControlled = ( { setSearchParams, page, setPage }) => {
     setUserInput(e.target.value);
   }
 
-  const onBlurHandler = (e) => {
+  const onKeyUpHandler = () => {
+    console.log("Key up triggered");
+  }
+
+  const onBlurHandler = () => {
     console.log("On blur triggered");
   }
 
@@ -34,21 +39,6 @@ const SearchBoxControlled = ( { setSearchParams, page, setPage }) => {
 
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
-    console.log(data);
-
-    // const dateFormat = /^\d{4}[./-](0[1-9]|1[0-2])[./-](0[1-9]|[12]\d|3[01])$/;
-    // dateFormat.test(userInput);
-    // console.log("test format");
-    // console.log(dateFormat.test(userInput));
-    // if(dateFormat.test(userInput)){
-    //   console.log("Its a date");
-    // } else {
-    //   console.log("It's not a date");
-    // }
-
-    // console.log("Matching test");
-    // const matchResult = userInput.match(dateFormat);
-    // console.log(matchResult);
 
     if(toggleInput === "text"){
       userInput === "" ? setSearchParams({ sort: "+createdAt", page: 1}) : setSearchParams({ title: userInput, text: userInput, authorFirstName: userInput, authorLastName: userInput, mode: "or", page: 1, sort: "+createdAt"});
@@ -61,19 +51,14 @@ const SearchBoxControlled = ( { setSearchParams, page, setPage }) => {
     queryClient.invalidateQueries({ queryKey: ['allPosts']});
   }
 
-  const onKeyUpHandler = (e) => {
-    console.log("Key up triggered");
-  }
-
   return(
     <div class={styles.topSection}>
       <div class={styles.searchBoxContainer}>
-        
         <form onSubmit={onSubmitHandler}>
           { toggleInput === "text" ? <SearchTextInput onChangeInputHandler={onChangeInputHandler} onBlurHandler={onBlurHandler} onKeyUpHandler={onKeyUpHandler} userInput={userInput}  /> : <ByDateInput /> }
           { toggleInput === "date" ? <button type="submit">Search</button>  : ""}
         </form>
-        {/* { toggleInput === "text" ? <button onClick={onToggleInput}> Search By Date </button> : <button onClick={onToggleInput}> Search By Text/Char</button>} */}
+
         { toggleInput === "text" ? <p>If you prefer to search by dates click <span onClick={onToggleInput}>here</span></p> : <p>If you prefer to search by text click <span onClick={onToggleInput}>here</span></p> }
       </div>
     </div>

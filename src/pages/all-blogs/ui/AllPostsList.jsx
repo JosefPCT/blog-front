@@ -1,5 +1,5 @@
+// Subcomponent that handles showing the posts that passes the filter criteria from the search query which by default shows all available posts,
 import { useQuery } from "@tanstack/react-query";
-// import { useLocation } from "react-router";
 
 import { fetchAllPosts } from "../../../shared/api";
 import { CardWrapper } from "../../../shared/ui";
@@ -47,8 +47,7 @@ const AllPostsList = ( { defaultQuery, limitBy }) => {
   // console.log("Value:");
   // console.log(value);
 
-  
-  
+  // Fetches data using either the default query of showing all posts or if there is a search query available, passes that instead 
   const { isPending, isError, data, error }= useQuery({
     queryKey: ['allPosts', defaultQuery],
     queryFn: () => fetchAllPosts(defaultQuery, limitBy),
@@ -62,6 +61,7 @@ const AllPostsList = ( { defaultQuery, limitBy }) => {
     return <span>Error: {error.message}</span>
   }
 
+  // Checks first if data is an array to avoid errors
   return (
     <ul className={styles.list}>
       {Array.isArray(data) && data.map((post) =>

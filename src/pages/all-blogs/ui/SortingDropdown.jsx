@@ -1,7 +1,9 @@
+// Subcomponent to display the dropdown for selecting the sorting order
 import styles from "./SortingDropdown.module.css";
 
 export default function SortingDropDown({addQueryParam}){
 
+  // Sets the searchParams of "sort" query key depending on the choice
   const onChangeHandler = (e) => {
     console.log("Choosing")
     console.log(e.target.value);

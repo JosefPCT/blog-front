@@ -1,5 +1,5 @@
 // Main Component that houses all components needed for the AllBlogsPage
-// Sets up needed states to pass on to children as props such as page and searchParams
+// Sets up needed states to pass on to children as props such as page and searchParams (for search query url)
 import { useSearchParams } from "react-router";
 import { useState } from "react";
 
@@ -14,8 +14,7 @@ const AllBlogsPage = () => {
   return (
     <div>
       <h1>Search An Article</h1>
-      <SearchBoxControlled setSearchParams={setSearchParams} page={page} setPage={setPage} />
-
+      <SearchBoxControlled setSearchParams={setSearchParams} setPage={setPage} />
       <MainSection setSearchParams={setSearchParams} page={page} setPage={setPage} />
     </div>
   )

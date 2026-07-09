@@ -1,7 +1,9 @@
+// Subcomponent that handles the list item being passed when iterating through the data array
 import { dateFormatter } from "../../../shared/lib";
 
 import styles from "./AllPostsListItem.module.css";
 
+// Uses .slice() to limit the characters and show a snipper of the post body
 export default function AllPostsListItem({post}){
   return(
     <li key={post.publicId} className={styles.listItem}>

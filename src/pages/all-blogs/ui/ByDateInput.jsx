@@ -1,3 +1,4 @@
+// Subcomponent to render the date inputs when toggled
 export default function ByDateInput(){
   return(
     <>

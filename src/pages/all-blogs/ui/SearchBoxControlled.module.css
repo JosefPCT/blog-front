@@ -1,16 +1,10 @@
-.topSection{
-  
-}
+/* Styling for the SearchBox Section */
 
+/* Parent container for the searchbox inputs, uses margin to center and width to control the total width for the inputs */
 .searchBoxContainer{
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; */
   margin: 0 auto;
   padding: 1rem;
-  width: 90%;
-
+  width: 95%;
 }
 
 
