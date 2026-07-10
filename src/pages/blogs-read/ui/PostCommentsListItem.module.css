@@ -1,3 +1,35 @@
-.no-style{
-  list-style: none;
+.listItemContainer{
+  display: flex;
+  gap: 12px;
+}
+
+.avatarContainer{
+  /* background-color: red; */
+}
+
+.contentContainer{
+  flex: 1;
+}
+
+.bodyContainer{
+  
+}
+
+
+.actionContainer{
+  display: flex;
+}
+
+.actionsContainer a{
+  color: black;
+  text-decoration: none;
+}
+
+
+.likeIconContainer{
+  /* flex-grow: 0; */
+  /* display: flex; */
+  /* padding: 12px; */
+  /* width: 10%; */
+  /* background-color: red; */
 }

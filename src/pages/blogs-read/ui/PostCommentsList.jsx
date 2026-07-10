@@ -1,5 +1,7 @@
 import PostCommentsListItem from "./PostCommentsListItem";
 
+import styles from "./PostCommentsList.module.css";
+
 const PostCommentsList = ( {isPending, isError, data, error} ) => {
 
   if(isPending){
@@ -11,7 +13,7 @@ const PostCommentsList = ( {isPending, isError, data, error} ) => {
   }
 
   return(
-    <ul>
+    <ul className={styles.listContainer}>
       {data.map((comment) => 
        <PostCommentsListItem key={comment.publicId} comment={comment}/>
       )}
