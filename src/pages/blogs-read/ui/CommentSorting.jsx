@@ -1,7 +1,12 @@
-export default function CommentSorting(){
+import { useQueryClient } from "@tanstack/react-query";
+
+export default function CommentSorting( { setSearchParams }){
+  const queryClient = useQueryClient();
 
   const onChangeHandler = (e) => {
     console.log(`Sorting Comments... by ${e.target.value}`);
+    setSearchParams({ sort: e.target.value });
+    queryClient.invalidateQueries({ queryKey: 'specificPostComments'});
   }
 
   return(
