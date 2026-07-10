@@ -1,0 +1,32 @@
+.subheadingContainer{
+  display: flex;
+  gap: 24px;
+}
+
+.subheadingContainer span{
+  background-color: rgb(233, 243, 241);
+  border-radius: 20px;
+  padding: .7rem;
+  margin-bottom: 24px;
+}
+
+.imageContainer{
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.imageContainer img{
+  width: 100%;
+  height: auto;
+  border-radius: 34px;
+}
+
+.bodyContainer{
+  padding: 12px;
+  margin: 12px;
+}

@@ -18,6 +18,7 @@ const PostCommentsList = ({postPublicId, isNewComment, setIsNewComment}) => {
 
   return(
     <ul>
+      {data.length}
       {data.map((comment) => 
        <PostCommentsListItem key={comment.publicId} comment={comment}/>
       )}
