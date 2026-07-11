@@ -10,6 +10,7 @@ import fetchPostComments from "../api/fetchPostComments";
 
 export default function CommentSection( {publicId}){
   const [isNewComment, setIsNewComment] = useState(false);
+  // const [likedComment, setIsLikedComment] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
 
   console.log("Window location:");
@@ -29,7 +30,7 @@ export default function CommentSection( {publicId}){
       <CreateCommentSection publicId={publicId} setIsNewComment={setIsNewComment} />
       <h3>All Comments {data && data.length} </h3>
       <CommentSorting setSearchParams={setSearchParams}/>
-      <PostCommentsList isPending={isPending} isError={isError} data={data} error={error} />
+      <PostCommentsList isPending={isPending} isError={isError} data={data} error={error}/>
     </section>
   )
 }

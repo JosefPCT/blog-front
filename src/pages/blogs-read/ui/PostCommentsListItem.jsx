@@ -1,14 +1,70 @@
+import { useQueryClient, useMutation } from "@tanstack/react-query";
+
 import { CardWrapper } from "../../../shared/ui";
 import { dateFormatter } from "../../../shared/lib";
 
+
+
+import updateUserLikedComment from "../api/updateUserLikedComment";
+
 import styles from "./PostCommentsListItem.module.css";
 
-const PostCommentsListItem = ({comment}) => {
+const PostCommentsListItem = ({comment, liked, userId}) => {
+  
+  const queryClient = useQueryClient();
+  console.log("Already liked?")
+  console.log(liked);
+  // console.log("User");
+  // console.log(user);
+  // console.log("User's liked comments");
+  // // console.log(user.liked_comments);
+  // console.log("Comment current:");
+  // console.log(comment);
+  // console.log("Comment current public id:")
+  // console.log(comment.publicId);
 
-  const onClickHandler = (e) => {
+  
+    // let liked;
+    // console.log(user.liked_comments);
+    // if(user.liked_comments){
+    //   liked = user.liked_comments.some(likedComment => likedComment.publicId === comment.publicId);
+    // }
+
+    // user.liked_comments.some(likedCom => {
+    //   console.log("Liked Comment public Id:")
+    //   console.log(likedCom.publicId);
+    //   console.log("Current comment public id;");
+    //   console.log(comment.publicId);
+    // });
+
+    // console.log("liked?");
+    // console.log(liked);
+  
+  // const alreadyLiked = (commentPublicId) => {
+  //   if(user.liked_comments){
+  //     user.liked_comments.some(likedCom => {
+  //       console.log(("User's Liked Comment Publicid:"))
+  //       console.log(likedCom.publicId);
+  //       console.log("Target comment public id:");
+  //       console.log(commentPublicId)
+  //     })
+  //   }
+  // }
+
+  
+
+  const onClickHandler = async (e) => {
     e.preventDefault();
+    if(!userId){
+      console.log("You must be logged in to like");
+    }
     console.log("Liked!");
-    console.log(e.target.parentElement.id);
+    console.log(comment);
+    console.log(e.currentTarget.id);
+    console.log(e.currentTarget.dataset);
+    await updateUserLikedComment(userId, e.currentTarget.dataset.id, e.currentTarget.dataset.name);
+    queryClient.invalidateQueries( {queryKey: 'specificPostComments'} );
+
   }
 
   return(
@@ -37,12 +93,21 @@ const PostCommentsListItem = ({comment}) => {
                 {comment.likes}
               </div>
               <div className={styles.likeIconContainer}>
-                  <a href="#" onClick={onClickHandler} id={comment.publicId}>
+                  {liked ? 
+                    <a href="#" onClick={onClickHandler} data-name="dislikedComment" data-id={comment.publicId}>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+                      </svg>
+                      <span>Liked Comment</span>
+                    </a> :
+                    <a href="#" onClick={onClickHandler} data-name="likedComment" data-id={comment.publicId}>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
                     </svg>
+                    <span>Not Liked Comment</span>
                   </a>
-                </div>      
+                  }           
+              </div>      
             </div>
          </CardWrapper>
         </div>
