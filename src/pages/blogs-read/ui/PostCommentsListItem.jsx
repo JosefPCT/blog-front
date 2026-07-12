@@ -21,7 +21,7 @@ const PostCommentsListItem = ({comment, liked, userId}) => {
 
   // The mutate function from Tanstack Query, only accepts a single object as argument, so you must send in an object with multiple keys, if multiple arguments is needed
   const mutation = useMutation({
-    mutationFn: async ({ userId, commentPublicId, fieldName}) => {
+    mutationFn: async ({ commentPublicId, fieldName}) => {
       await updateUserLikedComment(userId, commentPublicId, fieldName)
     },
     onSuccess: () => {
@@ -46,7 +46,6 @@ const PostCommentsListItem = ({comment, liked, userId}) => {
     
     // Using useMutate from tanstack query
     mutation.mutate({
-      userId: userId,
       commentPublicId: e.currentTarget.dataset.id,
       fieldName: e.currentTarget.dataset.name
     })
