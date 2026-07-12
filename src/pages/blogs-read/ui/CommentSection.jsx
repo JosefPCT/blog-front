@@ -31,7 +31,7 @@ export default function CommentSection( {publicId}){
     <section>
       <CreateCommentSection publicId={publicId} setIsNewComment={setIsNewComment} />
       <div className={styles.commentSectionHeading}>
-        <h3>All Comments {data && data.length} </h3>
+        <h3>All Comments <span className={styles.allCommentsResults}>{data && data.length}</span> </h3>
         <CommentSorting setSearchParams={setSearchParams}/>
       </div>
       <PostCommentsList isPending={isPending} isError={isError} data={data} error={error}/>
