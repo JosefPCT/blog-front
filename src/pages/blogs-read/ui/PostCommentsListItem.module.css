@@ -8,6 +8,35 @@
   flex: 1;
 }
 
+.contentWrapper{
+  padding: .5rem;
+}
+
+.headingContainer{
+  
+}
+
+.commenterName{
+ font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+ font-size: 1.3rem;
+ font-weight: bold;
+}
+
+
+.contentDate{
+  /* Pushes the date on the bottom of the container */
+  margin-top: auto;
+  margin-bottom: 0px;
+
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: .9rem;
+  color: #8a8686;
+}
+
+.commentMainBody{
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: 1.2rem;
+}
 
 .actionContainer{
   display: flex;

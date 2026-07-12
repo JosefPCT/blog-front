@@ -1,6 +1,7 @@
 import { useQueryClient, useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 
+import { useAuth } from "../../../entities/user";
 import { CardWrapper } from "../../../shared/ui";
 import { dateFormatter } from "../../../shared/lib";
 
@@ -53,6 +54,8 @@ const PostCommentsListItem = ({comment, liked, userId}) => {
   //   }
   // }
 
+  const { isAuth }= useAuth();
+
   const mutation = useMutation({
     mutationFn: async ({ userId, commentPublicId, fieldName}) => {
       await updateUserLikedComment(userId, commentPublicId, fieldName)
@@ -84,7 +87,9 @@ const PostCommentsListItem = ({comment, liked, userId}) => {
       commentPublicId: e.currentTarget.dataset.id,
       fieldName: e.currentTarget.dataset.name
     })
-    setCommentLiked(prev => !prev);
+    if(isAuth){
+      setCommentLiked(prev => !prev);
+    }
   }
 
   return(
@@ -98,36 +103,38 @@ const PostCommentsListItem = ({comment, liked, userId}) => {
         </div>
         <div className={styles.contentContainer}>
           <CardWrapper>
-            {/* <p>Key: {comment.publicId}</p> */}
-            <div className={styles.headingContainer}>
-              <span>{comment.authorName}</span>
-              <span>&#x25CF;</span>
-              <span>{dateFormatter(comment.createdAt)}</span>
-            </div>
-            {/* <a href={`/posts/${comment.publicId}/comments/${comment.publicId}/${comment.text}`}><p>{comment.text}</p></a> */}
-            <div className={styles.bodyContainer}>
-              <p>{comment.text}</p>
-            </div>
-            <div className={styles.actionContainer}>
-              <div>
-                {comment.likes}
+            {/* <p>Key: {comment.publicId}</p> */}  
+            <div className={styles.contentWrapper}>
+              <div className={styles.headingContainer}>
+                <span className={styles.commenterName}>{comment.authorName}</span>
+                <span>&#x25CF;</span>
+                <span className={styles.contentDate}>{dateFormatter(comment.createdAt)}</span>
               </div>
-              <div className={styles.likeIconContainer}>
-                  {commentLiked ? 
-                    <a href="#" onClick={onClickHandler} data-name="dislikedComment" data-id={comment.publicId}>
+              {/* <a href={`/posts/${comment.publicId}/comments/${comment.publicId}/${comment.text}`}><p>{comment.text}</p></a> */}
+              <div className={styles.bodyContainer}>
+                <p className={styles.commentMainBody}>{comment.text}</p>
+              </div>
+              <div className={styles.actionContainer}>
+                <div className={styles.likeIconContainer}>
+                    {commentLiked ? 
+                      <a href="#" onClick={onClickHandler} data-name="dislikedComment" data-id={comment.publicId}>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="skyblue" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+                        </svg>
+                        {/* <span>Liked Comment</span> */}
+                      </a> :
+                      <a href="#" onClick={onClickHandler} data-name="likedComment" data-id={comment.publicId}>
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
                       </svg>
-                      <span>Liked Comment</span>
-                    </a> :
-                    <a href="#" onClick={onClickHandler} data-name="likedComment" data-id={comment.publicId}>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
-                    </svg>
-                    <span>Not Liked Comment</span>
-                  </a>
-                  }           
-              </div>      
+                      {/* <span>Not Liked Comment</span> */}
+                    </a>
+                    }           
+                </div>
+                <div>
+                  {comment.likes}
+                </div>      
+              </div>
             </div>
          </CardWrapper>
         </div>
