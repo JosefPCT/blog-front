@@ -8,6 +8,8 @@ import CommentSorting from "./CommentSorting";
 
 import fetchPostComments from "../api/fetchPostComments";
 
+import styles from "./CommentSection.module.css";
+
 export default function CommentSection( {publicId}){
   const [isNewComment, setIsNewComment] = useState(false);
   // const [likedComment, setIsLikedComment] = useState(false);
@@ -28,8 +30,10 @@ export default function CommentSection( {publicId}){
   return(
     <section>
       <CreateCommentSection publicId={publicId} setIsNewComment={setIsNewComment} />
-      <h3>All Comments {data && data.length} </h3>
-      <CommentSorting setSearchParams={setSearchParams}/>
+      <div className={styles.commentSectionHeading}>
+        <h3>All Comments {data && data.length} </h3>
+        <CommentSorting setSearchParams={setSearchParams}/>
+      </div>
       <PostCommentsList isPending={isPending} isError={isError} data={data} error={error}/>
     </section>
   )
