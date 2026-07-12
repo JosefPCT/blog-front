@@ -1,4 +1,5 @@
 import { useQueryClient, useMutation } from "@tanstack/react-query";
+import { useState } from "react";
 
 import { CardWrapper } from "../../../shared/ui";
 import { dateFormatter } from "../../../shared/lib";
@@ -10,6 +11,7 @@ import updateUserLikedComment from "../api/updateUserLikedComment";
 import styles from "./PostCommentsListItem.module.css";
 
 const PostCommentsListItem = ({comment, liked, userId}) => {
+  const [commentLiked, setCommentLiked] = useState(liked);
   
   const queryClient = useQueryClient();
   console.log("Already liked?")
@@ -51,6 +53,15 @@ const PostCommentsListItem = ({comment, liked, userId}) => {
   //   }
   // }
 
+  const mutation = useMutation({
+    mutationFn: async ({ userId, commentPublicId, fieldName}) => {
+      await updateUserLikedComment(userId, commentPublicId, fieldName)
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['specificPostComments']})
+    }
+  })
+
   
 
   const onClickHandler = async (e) => {
@@ -62,9 +73,18 @@ const PostCommentsListItem = ({comment, liked, userId}) => {
     console.log(comment);
     console.log(e.currentTarget.id);
     console.log(e.currentTarget.dataset);
-    await updateUserLikedComment(userId, e.currentTarget.dataset.id, e.currentTarget.dataset.name);
-    queryClient.invalidateQueries( {queryKey: 'specificPostComments'} );
 
+    // Normal way
+    // await updateUserLikedComment(userId, e.currentTarget.dataset.id, e.currentTarget.dataset.name);
+    // queryClient.refetchQueries( {queryKey: ['specificPostComments']} );
+    
+    // Using useMutate from tanstack query
+    mutation.mutate({
+      userId: userId,
+      commentPublicId: e.currentTarget.dataset.id,
+      fieldName: e.currentTarget.dataset.name
+    })
+    setCommentLiked(prev => !prev);
   }
 
   return(
@@ -93,7 +113,7 @@ const PostCommentsListItem = ({comment, liked, userId}) => {
                 {comment.likes}
               </div>
               <div className={styles.likeIconContainer}>
-                  {liked ? 
+                  {commentLiked ? 
                     <a href="#" onClick={onClickHandler} data-name="dislikedComment" data-id={comment.publicId}>
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
