@@ -1,5 +1,7 @@
 import { useQueryClient } from "@tanstack/react-query";
 
+import styles from "./CommentSorting.module.css";
+
 export default function CommentSorting( { setSearchParams }){
   const queryClient = useQueryClient();
 
@@ -11,7 +13,7 @@ export default function CommentSorting( { setSearchParams }){
 
   return(
     <>
-      <select name="commentSort" id="commentSort" onChange={onChangeHandler}>
+      <select name="commentSort" id="commentSort" onChange={onChangeHandler} className={styles.customSelect}>
         <option value="-createdAt">Latest</option>
         <option value="+createdAt">Oldest</option>
         <option value="-likes">Most liked</option>
