@@ -1,14 +1,13 @@
-import { useQueryClient } from "@tanstack/react-query";
+// Component that handles rendering the sorting options for comments via user input and HTML's <select> element
+// Triggers a refetch automatically because the query used is dependent on the search's query, which will be changed when we call on the setSearchParams
 
 import styles from "./CommentSorting.module.css";
 
 export default function CommentSorting( { setSearchParams }){
-  const queryClient = useQueryClient();
 
   const onChangeHandler = (e) => {
     console.log(`Sorting Comments... by ${e.target.value}`);
     setSearchParams({ sort: e.target.value });
-    queryClient.invalidateQueries({ queryKey: 'specificPostComments'});
   }
 
   return(

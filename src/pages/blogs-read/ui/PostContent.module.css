@@ -1,3 +1,4 @@
+/* Aligns all subheading in a row */
 .subheadingContainer{
   display: flex;
   gap: 24px;
@@ -10,6 +11,7 @@
   margin-bottom: 24px;
 }
 
+/* Aligns the image to take up the whole row */
 .imageContainer{
   /* display: flex;
   justify-content: center;

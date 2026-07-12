@@ -1,3 +1,5 @@
+// Main function that handles updating the 'user' resource in the backend for the `liked_comments` field by sending either a `likedComments` to add the comment to the list of the liked comments of the user or `dislikedComment` to remove the comment from the list of the liked_comments of the user
+// Also updates the total likes of the comment by incrementing or decrementing it
 export default async function updateUserLikedComment(userId, commentPublicId, fieldName){
   const apiUrl = import.meta.env.VITE_API_URL;
 

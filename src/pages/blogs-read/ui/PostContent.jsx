@@ -1,3 +1,6 @@
+// Subcomponent that handles rendering of the post content
+// Uses Tanstack query to fetch data based on the url's public id
+
 import { useQuery } from "@tanstack/react-query";
 import fetchSpecificPost from "../api/fetchSpecificPost";
 import { dateFormatter } from "../../../shared/lib";

@@ -1,3 +1,4 @@
+/* Styling for the parent list container for the list items, removes default padding and margin for lists and its styles */
 .listContainer{
   list-style: none;
   padding: 0;

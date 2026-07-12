@@ -1,3 +1,6 @@
+// Main function that handles the POST to create the actual comment on the backend by using fetch with a method of 'POST'
+// Returns the created comment data (if needed)
+// Used by CommentForm component
 export default async function postCreateComment(publicPostId, text){
   const apiUrl = import.meta.env.VITE_API_URL;
 

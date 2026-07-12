@@ -1,5 +1,5 @@
 // Function that fetches a specific post by the api url's parameter, returns the parsed json data of the post
-// Used in a query function
+// Used in a query function (i.e PostContent.jsx)
 export default async function fetchSpecificPost(postPublicId){
   const apiUrl = import.meta.env.VITE_API_URL;
   console.log(`${apiUrl}/api/v1/posts/${postPublicId}`);

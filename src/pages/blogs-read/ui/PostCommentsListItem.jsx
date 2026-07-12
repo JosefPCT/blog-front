@@ -1,11 +1,13 @@
+// Component that handles the actual rendering of individual comment's data, such as the avatar profile, author's name etc.
+// Has a state that toggles between true or false to trigger rendering of the other if a user liked a comment without waiting for the refetch
+// Uses useMutate to handle refetch when liking a comment (Alternative to just calling invalidateQueries raw)
+// Renders a like icon svg with different `data-name`  attribute (likedComment or dislikedComment) depending if the comment is already liked or not 
 import { useQueryClient, useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 
 import { useAuth } from "../../../entities/user";
 import { CardWrapper } from "../../../shared/ui";
 import { dateFormatter } from "../../../shared/lib";
-
-
 
 import updateUserLikedComment from "../api/updateUserLikedComment";
 
@@ -15,47 +17,9 @@ const PostCommentsListItem = ({comment, liked, userId}) => {
   const [commentLiked, setCommentLiked] = useState(liked);
   
   const queryClient = useQueryClient();
-  console.log("Already liked?")
-  console.log(liked);
-  // console.log("User");
-  // console.log(user);
-  // console.log("User's liked comments");
-  // // console.log(user.liked_comments);
-  // console.log("Comment current:");
-  // console.log(comment);
-  // console.log("Comment current public id:")
-  // console.log(comment.publicId);
-
-  
-    // let liked;
-    // console.log(user.liked_comments);
-    // if(user.liked_comments){
-    //   liked = user.liked_comments.some(likedComment => likedComment.publicId === comment.publicId);
-    // }
-
-    // user.liked_comments.some(likedCom => {
-    //   console.log("Liked Comment public Id:")
-    //   console.log(likedCom.publicId);
-    //   console.log("Current comment public id;");
-    //   console.log(comment.publicId);
-    // });
-
-    // console.log("liked?");
-    // console.log(liked);
-  
-  // const alreadyLiked = (commentPublicId) => {
-  //   if(user.liked_comments){
-  //     user.liked_comments.some(likedCom => {
-  //       console.log(("User's Liked Comment Publicid:"))
-  //       console.log(likedCom.publicId);
-  //       console.log("Target comment public id:");
-  //       console.log(commentPublicId)
-  //     })
-  //   }
-  // }
-
   const { isAuth }= useAuth();
 
+  // The mutate function from Tanstack Query, only accepts a single object as argument, so you must send in an object with multiple keys, if multiple arguments is needed
   const mutation = useMutation({
     mutationFn: async ({ userId, commentPublicId, fieldName}) => {
       await updateUserLikedComment(userId, commentPublicId, fieldName)
@@ -65,8 +29,7 @@ const PostCommentsListItem = ({comment, liked, userId}) => {
     }
   })
 
-  
-
+  // Event handler when clicking the like icon to like/dislike a comment
   const onClickHandler = async (e) => {
     e.preventDefault();
     if(!userId){

@@ -1,7 +1,7 @@
 // Helper function that fetches all the comments of a specific post, returns the parsed list of the comments
-// Used in a query function for Tanstack
+// Used in a query function for Tanstack (i.e CommentSection.jsx)
 
-export default async function fetchPostComments(postPublicId, setIsNewComment, urlQuery="?sort=-createdAt"){
+export default async function fetchPostComments(postPublicId, urlQuery="?sort=-createdAt"){
   const apiUrl = import.meta.env.VITE_API_URL;
   const response = await fetch(`${apiUrl}/api/v1/posts/${postPublicId}/comments${urlQuery}`);
   if(!response.ok){
@@ -17,6 +17,6 @@ export default async function fetchPostComments(postPublicId, setIsNewComment, u
   }
   console.log("Comments List Data");
   console.log(comments);
-  setIsNewComment(false);
+
   return comments;
 }

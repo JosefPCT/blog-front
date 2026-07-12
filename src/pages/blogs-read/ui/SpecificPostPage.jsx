@@ -1,3 +1,6 @@
+// Main Component for the `blogs-read` layer, entry point
+// Gets the public id of the post from the url using useParams() and passes it as props
+
 import { useParams } from "react-router";
 
 import MainSection from "./MainSection";

@@ -1,9 +1,11 @@
+/* Aligns the all results heading and the sorting component */
 .commentSectionHeading{
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+/* Isolate design the actual number for the total comments */
 .allCommentsResults{
   border: 1px solid black;
   padding: 8px;

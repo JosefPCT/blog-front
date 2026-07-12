@@ -1,3 +1,7 @@
+// Component that handles iterating through the data fetched into a list of items
+// Also handles sending a prop called 'liked' which checks if a comment is already liked by the current user, via the .some() function that returns true or false
+// Also sends in the individual comment data as prop and the current user's id to its children
+
 import PostCommentsListItem from "./PostCommentsListItem";
 
 import { useUser } from "../../../entities/user";
@@ -6,15 +10,6 @@ import styles from "./PostCommentsList.module.css";
 
 const PostCommentsList = ( {isPending, isError, data, error} ) => {
   const { user } = useUser();
-
-  console.log(user);
-  // console.log(user.liked_comments);  
-
-  // const alreadyLiked = (targetCommentPublicId) => {
-  //   if(user.liked_comments){
-  //     return user.liked_comments.some(likedComment => likedComment.publicId === targetCommentPublicId);
-  //   }
-  // }
 
   if(isPending){
     return <span>Loading...</span>
