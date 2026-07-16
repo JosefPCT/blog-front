@@ -84,10 +84,10 @@
 
     return(
       <form action={formAction} className={styles.formContainer}>
-          <label htmlFor="user_name">Email:</label>
+          <label htmlFor="user_name">Email</label>
           <input type="email" name="user_name" id="user_name" required />
 
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">Password</label>
           <input type="password" name="password" id="password" required />
 
           <button type="submit" disabled={isPending}>

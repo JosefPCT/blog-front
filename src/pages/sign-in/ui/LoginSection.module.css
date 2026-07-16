@@ -27,13 +27,34 @@
   align-self: flex-start;
 }
 
+.brandContainer{
+  display: grid;
+  place-items: center;
+}
 
+.brandContainer img{
+  height: 150px;
+  width: auto;
+  object-fit: contain;
+}
 
 .formSection{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.formSection h3{
+  margin: 0;
+  padding: 0;
+
+  font-size: 2.5rem;
+
+}
+
+.formSubheading{
+  color: #686868;
 }
 
 .mainImageContainer{
@@ -43,5 +64,28 @@
 
 .mainImageContainer img{
   height: 100%;
-  object-fit: cover
+  object-fit: cover;
+}
+
+.footerSection{
+  /* display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  /* word-wrap: break-word;
+  overflow-wrap: break-word; */
+
+  background-color: red;
+  width: 50%;
+  
+}
+
+.footerSection span{
+  font-size: .8rem;
 }

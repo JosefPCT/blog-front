@@ -132,29 +132,29 @@ const RegisterForm = ({setToggleSection}) => {
 
   return(
     <form onSubmit={onSubmitHandler} className={`${styles.formContainer}`}>
-        <label htmlFor="email">Email:</label>
+        <label htmlFor="email">Email</label>
         <input type="text" name="email" id="email" value={formData.email} onChange={onChangeHandler} onBlur={onBlurHandler}/>
         { errors && errors.email && <span>{errors.email}</span>}
 
-        <label htmlFor="password">Password:</label>
+        <label htmlFor="password">Password</label>
         { showPassword ? 
           <input type="text" name="password" id="password" value={formData.password} onChange={onChangeHandler} onBlur={onBlurHandler} />
           : <input type="password" name="password" id="password" value={formData.password} onChange={onChangeHandler} onBlur={onBlurHandler} /> }
         <button onClick={showPasswordToggle}>{ showPassword ? "Hide Password" : "Show Password"}</button>
         { errors && errors.password && <span>{errors.password}</span>}
 
-        <label htmlFor="confirm_password">Confirm Password:</label>
+        <label htmlFor="confirm_password">Confirm Password</label>
         { showConfirmPassword ?
           <input type="text" name="confirm_password" id="confirm_password" value={formData.confirm_password} onChange={onChangeHandler} onBlur={onBlurHandler} />
           : <input type="password" name="confirm_password" id="confirm_password" value={formData.confirm_password} onChange={onChangeHandler} onBlur={onBlurHandler} /> }
         <button onClick={showConfirmPasswordToggle}>{ showConfirmPassword ? "Hide Password" : "Show Password"}</button>
         { errors && errors.confirm_password && <span>{errors.confirm_password}</span>}
 
-        <label htmlFor="firstName">First Name: </label>
+        <label htmlFor="firstName">First Name</label>
         <input type="text" name="firstName" id="firstName" value={formData.firstName} onChange={onChangeHandler} onBlur={onBlurHandler} />
         { errors && errors.firstName && <span>{errors.firstName}</span>}
         
-        <label htmlFor="lastName">Last Name: </label>
+        <label htmlFor="lastName">Last Name</label>
         <input type="text" name="lastName" id="lastName" value={formData.lastName} onChange={onChangeHandler} onBlur={onBlurHandler} />
         { errors && errors.lastName && <span>{errors.lastName}</span>}
 
