@@ -36,7 +36,7 @@ const LoginSection = () => {
           }
         </div>
         <div className={styles.footerSection}>
-          {/* <span>Join our community of hardworking individuals that spends a lot of time reading articles about new technologies and developer blogs. Login to access certain membership perks including the ability to add a comment under a post.</span> */}
+          <span>Join our community of hardworking individuals that spends a lot of time reading articles about new technologies and developer blogs. Login to access certain membership perks including the ability to add a comment under a post.</span>
         </div>
       </div>
       <div className={`${styles.mainImageContainer} ${styles.sectionChild}`}>
