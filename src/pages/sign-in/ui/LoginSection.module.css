@@ -1,3 +1,18 @@
+.sectionContainer{
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 2rem;
+  padding: 3px;
+  background-color: #ffffff;
+  
+}
+
+.sectionChild{
+  flex: 1;
+  min-width: 0;
+}
+
 .mainContentContainer{
   display: flex;
   flex-direction: column;
@@ -5,18 +20,14 @@
   align-items: center;
 
   padding: 2rem;
+  /* padding-bottom: 300px; */
 }
 
 .mainContentContainer h2{
   align-self: flex-start;
 }
 
-.sectionContainer{
-  display: flex;
-  padding: 3px;
-  background-color: #ffffff;
-  
-}
+
 
 .formSection{
   display: flex;
@@ -25,6 +36,12 @@
   align-items: center;
 }
 
-.mainImageContainer img{
+.mainImageContainer{
+  width: 100%;
+  height: auto;
+}
 
+.mainImageContainer img{
+  height: 100%;
+  object-fit: cover
 }

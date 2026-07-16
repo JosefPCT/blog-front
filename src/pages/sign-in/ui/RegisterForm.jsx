@@ -2,6 +2,8 @@ import { useState } from "react";
 
 import registerUser from "../api/registerUser";
 
+import styles from "./RegisterForm.module.css";
+
 const RegisterForm = ({setToggleSection}) => {
   const [formData, setFormData] = useState({
     email: "",
@@ -129,7 +131,7 @@ const RegisterForm = ({setToggleSection}) => {
   }
 
   return(
-    <form onSubmit={onSubmitHandler}>
+    <form onSubmit={onSubmitHandler} className={`${styles.formContainer}`}>
         <label htmlFor="email">Email:</label>
         <input type="text" name="email" id="email" value={formData.email} onChange={onChangeHandler} onBlur={onBlurHandler}/>
         { errors && errors.email && <span>{errors.email}</span>}

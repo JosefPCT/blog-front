@@ -10,6 +10,8 @@
   import { setToken } from "../../../shared/lib/tokenHelper";
   import { useAuth } from "../../../entities/user";
 
+  import styles from "./LoginForm.module.css";
+
 
   // **Note: You can create asynchronous action function inside the component, so you won't need to use `.bind()` to pass on custom arguments, since you can directly use any context data, state or state setter you need**
   async function loginUserAction(isAuth, setIsAuth, navigate, prevUrl, prevState, formData){ 
@@ -81,7 +83,7 @@
     
 
     return(
-      <form action={formAction}>
+      <form action={formAction} className={styles.formContainer}>
           <label htmlFor="user_name">Email:</label>
           <input type="email" name="user_name" id="user_name" required />
 

@@ -17,7 +17,7 @@ const LoginSection = () => {
   }
   return(
     <div className={styles.sectionContainer}>
-      <div className={styles.mainContentContainer}>
+      <div className={`${styles.mainContentContainer} ${styles.sectionChild}`}>
         <div>
           <h2>Brand</h2>
         </div>
@@ -31,7 +31,7 @@ const LoginSection = () => {
           Footer
         </div>
       </div>
-      <div className={styles.mainImageContainer}>
+      <div className={`${styles.mainImageContainer} ${styles.sectionChild}`}>
         <img src="https://images.unsplash.com/photo-1783961797133-dd0fc5a722ec?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image  " />
       </div>
     </div>
