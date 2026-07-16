@@ -1,0 +1,28 @@
+.mainContentContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mainContentContainer h2{
+  align-self: flex-start;
+}
+
+.sectionContainer{
+  display: flex;
+  padding: 3px;
+  background-color: #ffffff;
+  
+}
+
+.formSection{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainImageContainer img{
+
+}
