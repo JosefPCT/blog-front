@@ -22,6 +22,7 @@
 }
 
 .formContainer button{
+  
   padding: .5rem;
   border-radius: 10px;
   color: #ffffff;
@@ -32,4 +33,23 @@
 .formContainer button:hover{
   background-color: #40B7FF;
   cursor: pointer
+}
+
+.showPasswordContainer{
+  display: flex;
+  gap: 8px;
+}
+
+.showPasswordContainer button{
+  all: unset;
+  cursor: pointer; /* Restores the clickable hand icon */
+}
+
+.showPasswordContainer button:hover{
+  all: unset;
+  cursor: pointer;
+}
+
+.showPasswordContainer svg:hover{
+  cursor: pointer;
 }
