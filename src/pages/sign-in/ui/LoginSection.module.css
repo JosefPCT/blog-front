@@ -1,43 +1,43 @@
+/* Aligns the two child section with each other */
 .sectionContainer{
   display: flex;
   flex-direction: row;
   align-items: stretch;
   gap: 2rem;
-  padding: 3px;
   background-color: #ffffff;
   
 }
 
+/* Makes it so both children try to take up as much space at the same time */
 .sectionChild{
   flex: 1;
   min-width: 0;
 }
 
+/* Structures the main content to stack on top of each other and have space and center */
 .mainContentContainer{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content:space-around;
   align-items: center;
 
   padding: 1rem;
-  /* padding-bottom: 300px; */
 }
 
-.mainContentContainer h2{
-  align-self: flex-start;
-}
-
+/* Brand styling inside the main content */
 .brandContainer{
   display: grid;
   place-items: center;
 }
 
+/* Makes the brand have a fixed height */
 .brandContainer img{
   height: 150px;
   width: auto;
   object-fit: contain;
 }
 
+/* Makes the form section stack on top of each other and center */
 .formSection{
   display: flex;
   flex-direction: column;
@@ -45,6 +45,7 @@
   align-items: center;
 }
 
+/* Removes default spacing for the heeading and upscales the heading */
 .formSection h3{
   margin: 0;
   padding: 0;
@@ -53,14 +54,12 @@
 
 }
 
+/* Different color text for the subheading to differentiate */
 .formSubheading{
   color: #686868;
 }
 
-.mainImageContainer{
-  flex: 1;
-}
-
+/* Makes the image take up all the height and width as its sibling */
 .mainImageContainer img{
   height: 100%;
   width: 100%;

@@ -1,6 +1,7 @@
-  // Using `useActionState`
+  // Subcomponent that handles the rendering of the actual form elements on the LoginSection, using `useActionState`
   // Login Form that uses new way to create a form from React 19's `useActionState` and passing a function to the `action` attribute of a form
   // Uses global state `isAuth` and `user`
+
 
   import { useActionState } from "react";
   import { useNavigate, useSearchParams } from "react-router";
@@ -14,17 +15,23 @@
 
 
   // **Note: You can create asynchronous action function inside the component, so you won't need to use `.bind()` to pass on custom arguments, since you can directly use any context data, state or state setter you need**
+  // A separated function to be used as the action function
   async function loginUserAction(isAuth, setIsAuth, navigate, prevUrl, prevState, formData){ 
+    // Clears token storage if token is not valid
     setToken();
+
     console.log("Prev url value:");
     console.log(prevUrl);
 
+    // Extracts data from the formData object that automatically gets sent to the action function as the last argument
     const email = formData.get("user_name");
     const data = {
       user_name: formData.get("user_name"),
       password: formData.get("password"),
     }
 
+    // Logical checks before proceeding to POST to backend
+    // When successful, navigates to the previous url
     try {
       if(isAuth){
         return { error: "Already logged in" };
@@ -49,6 +56,8 @@
 
   }
 
+  // The actual component that handles setting up the needed things to pass on to the action function (i.e useNavigate, auth context, and the previous url using searchParams)
+  // Uses `.bind()` to bind custom arguments to the action and calls on the `actionState` hook
   const LoginForm = () => {
     const navigate = useNavigate();
     const [searchParams]= useSearchParams();

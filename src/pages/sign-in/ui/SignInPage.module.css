@@ -1,3 +1,4 @@
+/* Centers the main section and creates a shaded background for the form to be white */
 .pageContainer{
   display: flex;
   justify-content: center;

@@ -1,3 +1,4 @@
+// Helper function that handles posting registration details to the backend to create a user
 export default async function registerUser(data = {}){
   const apiUrl = import.meta.env.VITE_API_URL;
   const response = await fetch(`${apiUrl}/api/v1/users`, {

@@ -1,4 +1,4 @@
-// import Login from "./Login";
+// Main component for sign-in page layer
 import LoginSection from "./LoginSection";
 
 import styles from "./SignInPage.module.css";

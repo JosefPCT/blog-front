@@ -1,3 +1,10 @@
+// Component that handles rendering the register form elements
+// Uses a controlled form pattern where we create states for each input, also have states for error and loading states, and for a showPassword and showConfirmPassword state
+// Has several helper functions including a check if inputs have errors (hasErrors), a validateField function that handles validation of inputs when onBlur is triggered,
+// Handlers such as setting the input value to the state (onChange), an onBlur handler that calls on `validateField` to check for current errors and sets the `errors` state if there is
+// Handler toggles for showPassword and confirmShowPassword
+// The submit handler for the submit action
+
 import { useState } from "react";
 
 import registerUser from "../api/registerUser";
@@ -130,6 +137,7 @@ const RegisterForm = ({setToggleSection}) => {
     // }
   }
 
+  // Has rendering logic to show a different show password/confirm show password icon depending on the state, as well as a check if `errors` object is present and displays the errors
   return(
     <form onSubmit={onSubmitHandler} className={`${styles.formContainer}`}>
         <label htmlFor="email">Email</label>

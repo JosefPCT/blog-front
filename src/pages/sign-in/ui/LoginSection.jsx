@@ -1,9 +1,11 @@
+// Subcomponent that handles rendering logic to show a register form or a login form depending on the toggled state
+// Has many logical rendering to render different things depending on the `toggleSection` state value
 import { useState } from "react";
 import { NavLink } from "react-router";
 
+import LoginForm from "./LoginFormReact19";
 // import LoginForm from "./LoginFormControlled";
 // import LoginForm from "./LoginFormUnControlled";
-import LoginForm from "./LoginFormReact19";
 // import LoginForm from "./LoginFormReactHookForm";
 
 import RegisterForm from "./RegisterForm";
@@ -29,7 +31,6 @@ const LoginSection = () => {
           <h3>{ toggleSection === 'login' ? 'Login' : 'Register'}</h3>
           <span className={`${styles.formSubheading}`}>{ toggleSection === 'login' ? 'Welcome back! Please enter your login details' : 'Create an account'}</span>
           { toggleSection === 'login' ? <LoginForm /> : <RegisterForm setToggleSection={setToggleSection}/>}
-          {/* <a href="#" onClick={toggleSectionHandler}>{ toggleSection === 'login' ? 'No account yet? Go register here' : 'Already have an account? Login here'}</a> */}
           { toggleSection === 'login' ? 
            <p>No account yet? <a href="#" onClick={toggleSectionHandler}>Register</a></p> :
            <p>Already have an account? <a href="#" onClick={toggleSectionHandler}>Sign in</a></p>
