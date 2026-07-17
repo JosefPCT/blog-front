@@ -35,9 +35,9 @@ const LoginSection = () => {
            <p>Already have an account? <a href="#" onClick={toggleSectionHandler}>Sign in</a></p>
           }
         </div>
-        <div className={styles.footerSection}>
-          <span>Join our community of hardworking individuals that spends a lot of time reading articles about new technologies and developer blogs. Login to access certain membership perks including the ability to add a comment under a post.</span>
-        </div>
+        {/* <div className={styles.footerSection}> */}
+          {/* <span>Join our community of hardworking individuals that spends a lot of time reading articles about new technologies and developer blogs. Login to access certain membership perks including the ability to add a comment under a post.</span> */}
+        {/* </div> */}
       </div>
       <div className={`${styles.mainImageContainer} ${styles.sectionChild}`}>
         <img src="https://images.unsplash.com/photo-1610050731821-f58da5e8abc6?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image  " />

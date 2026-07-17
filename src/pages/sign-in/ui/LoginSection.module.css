@@ -16,10 +16,10 @@
 .mainContentContainer{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
-  padding: 2rem;
+  padding: 1rem;
   /* padding-bottom: 300px; */
 }
 
@@ -59,8 +59,6 @@
 
 .mainImageContainer{
   flex: 1;
-  width: 100%;
-  height: auto;
 }
 
 .mainImageContainer img{
@@ -69,8 +67,8 @@
   object-fit: cover;
 }
 
-.footerSection{
-  /* display: flex;
+/* .footerSection{
+  display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -80,14 +78,21 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  /* word-wrap: break-word;
-  overflow-wrap: break-word; */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 
   background-color: red;
-  width: 50%;
-  
+} */
+
+/* .footerSection{
+  min-height: 200px;
+  height: auto;
+  min-width: 0;
 }
 
 .footerSection span{
   font-size: .8rem;
-}
+  max-width: 100%;
+  display: inline-block;
+  box-sizing: border-box;
+} */
