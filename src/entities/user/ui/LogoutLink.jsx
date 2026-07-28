@@ -2,7 +2,7 @@ import { NavLink } from "react-router";
 import { useAuth } from "../model/AuthContext";
 import { useUser } from "../model/UserContext";
 
-import styles from './LogoutLink.module.css';
+// import styles from './LogoutLink.module.css';
 
 const LogoutLink = () => {
   const { setIsAuth } = useAuth();
@@ -17,7 +17,7 @@ const LogoutLink = () => {
   return(
     <NavLink 
       to="/"
-      className={`${styles.authLink} ${styles.logoutBtn}`}
+      // className={`${styles.authLink} ${styles.logoutBtn}`}
       onClick={handleLogout}>
         Logout
     </NavLink>

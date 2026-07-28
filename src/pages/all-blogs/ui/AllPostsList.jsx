@@ -40,7 +40,7 @@ const AllPostsList = ( { defaultQuery, limitBy }) => {
   // query = searchParams.has("title") &&  searchParams.has("value") ? query + `title=${value}` : "";
 
   // console.log("Test");
-  // console.log(searchParams.get("category"));
+  // console.log(searchParams.get("category"))
 
   // console.log("Category");
   // console.log(category)
