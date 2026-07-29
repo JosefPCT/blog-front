@@ -16,7 +16,7 @@ const LatestPostListItem = ({post}) => {
           </div>
           <div className={styles.textContainer}>
             <span className={styles.contentTag}>Tag</span>
-            <h3 className={styles.contentTitle}><Navlink to={`/posts/${post.publicId}/${post.title}`}>{post.title}</Navlink></h3>
+            <h3 className={styles.contentTitle}><NavLink to={`/posts/${post.publicId}/${post.title}`}>{post.title}</NavLink></h3>
             <span className={styles.contentDate}>{dateFormatter(post.createdAt)}</span>
           </div>
         </CardWrapper>
