@@ -38,7 +38,7 @@ const PostContent = ({ publicId, postSlug }) => {
       {/* <p>{publicId}</p> */}
       {/* <p>{postSlug}</p> */}
       <div className={styles.bodyContainer}>
-        <p>{data.text}</p>
+        <p dangerouslySetInnerHTML={{__html: data.text}}></p>
       </div>
     </>
   )

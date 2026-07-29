@@ -35,9 +35,9 @@ const FeaturedPostSection = () => {
         </div>
       
         <div className={styles.imageContainer}>
-          <a href={`/posts/${data.publicId}/${data.title}`}>
+          <NavLink to={`/posts/${data.publicId}/${data.title}`}>
             <img src="https://images.unsplash.com/photo-1623039405147-547794f92e9e?q=80&w=826&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Article Photo" srcset="" />
-          </a>
+          </NavLink>
         </div> 
       </div>
     </div>
