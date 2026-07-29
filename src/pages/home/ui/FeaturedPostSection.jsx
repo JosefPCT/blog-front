@@ -1,5 +1,6 @@
 // Refactor using Tanstack Query
 import { useQuery } from "@tanstack/react-query";
+import { NavLink } from "react-router";
 
 import fetchFeaturedPost from "../api/fetchFeaturedPost";
 import styles from "./FeaturedPostSection.module.css";
@@ -28,7 +29,8 @@ const FeaturedPostSection = () => {
       <div className={styles.sectionContainer}>
         <div className={styles.contentContainer}>
           <a className={styles.linkNoDecoration} href="#"><span className={styles.contentTag}>Informative</span></a>
-          <h2 className={styles.contentTitle}><a href={`/posts/${data.publicId}/${data.title}`}>{data.title}</a></h2>
+          {/* <h2 className={styles.contentTitle}><a href={`/posts/${data.publicId}/${data.title}`}>{data.title}</a></h2> */}
+          <h2 className={styles.contentTitle}><NavLink to={`/posts/${data.publicId}/${data.title}`}>{data.title}</NavLink></h2>
           <p className={styles.contentDate}>{dateFormatter(data.createdAt)}</p>
         </div>
       
