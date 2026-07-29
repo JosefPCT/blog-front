@@ -15,7 +15,7 @@ export default function AllPostsListItem({post}){
       </div>
       <div className={styles.listContentContainer}>
         <div className={styles.contentHeader}>
-          <h3 className={styles.contentTitle}><Navlink to={`/posts/${post.publicId}/${post.title}`}>{post.title}</Navlink></h3>
+          <h3 className={styles.contentTitle}><NavLink to={`/posts/${post.publicId}/${post.title}`}>{post.title}</NavLink></h3>
           <span className={styles.contentTag}>Tag</span>
         </div>
       
